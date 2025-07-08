@@ -21,6 +21,153 @@
             padding: 20px;
         }
 
+        /* Password Protection Overlay Styles */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #BCBDC0 0%, #DB3328 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .password-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .password-container .logo {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .password-container h2 {
+            color: #333;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .password-container p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #DB3328;
+            box-shadow: 0 0 0 3px rgba(219, 51, 40, 0.1);
+        }
+
+        .password-submit {
+            width: 100%;
+            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .password-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(219, 51, 40, 0.3);
+        }
+
+        .password-error {
+            color: #DC2626;
+            margin-top: 15px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .password-hint {
+            color: #666;
+            font-size: 12px;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* Hide main content initially */
+        .main-content {
+            display: none;
+        }
+
+        /* Logout button */
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #DC2626;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.2s;
+            z-index: 100;
+        }
+
+        .logout-btn:hover {
+            background: #B91C1C;
+        }
+
+        /* Access notice */
+        .access-notice {
+            background: #FEF3C7;
+            border: 2px solid #F59E0B;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .access-notice h3 {
+            color: #92400E;
+            margin-bottom: 5px;
+        }
+
+        .access-notice p {
+            color: #78350F;
+            font-size: 14px;
+        }
+
+        /* All your existing Event Hub styles */
         .container {
             background: white;
             border-radius: 15px;
@@ -422,352 +569,436 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <!-- Password Protection Overlay -->
+    <div id="passwordOverlay" class="password-overlay">
+        <div class="password-container">
             <img src="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" alt="Tournament Logo" class="logo">
-            <h1>⚽ Soccer Slam 2025</h1>
-            <p>Event Hub & Organizational Center</p>
+            <h2>🔒 SHINE Representatives Only</h2>
+            <p>This area is for SHINE Reps only. Please enter the access code provided to SHINE Representatives.</p>
+            
+            <form id="passwordForm">
+                <input type="password" id="passwordInput" class="password-input" placeholder="Enter Access Code" maxlength="20">
+                <button type="submit" class="password-submit">Access Event Hub</button>
+                <div id="passwordError" class="password-error">Incorrect access code. Please try again.</div>
+                <div class="password-hint">Contact the Event Coordinator if you need the access code</div>
+            </form>
         </div>
+    </div>
 
-        <div class="navigation-menu">
-            <div class="nav-links">
-                <a href="https://cornerstonesydney.github.io/shine/" class="nav-link">Adults Soccer</a>
-                <a href="https://cornerstonesydney.github.io/shine/kids-registration" class="nav-link">Kids Soccer</a>
-                <a href="https://cornerstonesydney.github.io/shine/stall-holders" class="nav-link">Stall Holders</a>
-                <a href="https://cornerstonesydney.github.io/shine/volunteers" class="nav-link">Volunteers</a>
-                <a href="#" class="nav-link current">Event Hub</a>
+    <!-- Main Content (Hidden initially) -->
+    <div id="mainContent" class="main-content">
+        <button class="logout-btn" onclick="logout()">Logout</button>
+        
+        <div class="container">
+            <div class="header">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" alt="Tournament Logo" class="logo">
+                <h1>⚽ Soccer Slam 2025</h1>
+                <p>Event Hub & Organizational Center</p>
             </div>
-        </div>
 
-        <div class="tab-navigation">
-            <button class="tab-btn active" data-tab="overview">Overview</button>
-            <button class="tab-btn" data-tab="checklist">Master Checklist</button>
-            <button class="tab-btn" data-tab="roles">Roles & Tasks</button>
-            <button class="tab-btn" data-tab="tournament">Tournament</button>
-            <button class="tab-btn" data-tab="resources">Resources</button>
-        </div>
-
-        <!-- Overview Section -->
-        <div id="overview" class="content-section active">
-            <div class="section-content">
-                <h2 class="section-title">Event Overview</h2>
-                <p class="section-description">Soccer Slam 2025 is our annual all-church tournament bringing together 8 congregations for a day of friendly competition, delicious food, and fellowship. This hub contains everything organizers need to successfully coordinate the event.</p>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">Aug 10</div>
-                        <div class="stat-label">Event Date</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">8</div>
-                        <div class="stat-label">Adult Teams</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">4+</div>
-                        <div class="stat-label">Kids Teams</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">1:30 PM</div>
-                        <div class="stat-label">Start Time</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">8</div>
-                        <div class="stat-label">Food Stalls</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">3.5</div>
-                        <div class="stat-label">Hours of Fun</div>
-                    </div>
-                </div>
-
-                <h3 style="color: #DB3328; margin-bottom: 15px;">Project Timeline</h3>
-                <div class="chart-container">
-                    <canvas id="timelineChart"></canvas>
-                </div>
-
-                <h3 style="color: #DB3328; margin-bottom: 15px;">Key Details</h3>
-                <ul style="color: #666; line-height: 1.8;">
-                    <li><strong>Location:</strong> Powells Creek Reserve, Homebush</li>
-                    <li><strong>Setup:</strong> 12:30 PM arrival for setup crew</li>
-                    <li><strong>Event:</strong> 1:30 PM - 5:00 PM</li>
-                    <li><strong>Adult Tournament:</strong> 7-a-side (minimum 1 female per team)</li>
-                    <li><strong>Kids Tournament:</strong> Mixed random teams, all ages 4-17</li>
-                    <li><strong>Food Stalls:</strong> 8 congregation stalls + 1 mission stall</li>
-                    <li><strong>Purpose:</strong> Fellowship and fundraising for mission partners</li>
-                </ul>
+            <div class="access-notice">
+                <h3>🔐 Restricted Access Area</h3>
+                <p>Heads up, this section is for SHINE Reps only, so please don't share the password.</p>
             </div>
-        </div>
 
-        <!-- Master Checklist Section -->
-        <div id="checklist" class="content-section">
-            <div class="section-content">
-                <h2 class="section-title">Coordinator's Master Checklist</h2>
-                <p class="section-description">This is your central command center. Track progress through each phase to ensure nothing is missed leading up to the big day.</p>
-                
-                <div class="phase-section">
-                    <div class="phase-title">Phase 1: Initial Setup & Planning (Complete by 15 July 2025)</div>
-                    <ul class="task-list">
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task1">
-                            <label for="task1" class="task-text">Finalise and confirm all 8 SHINE Representative roles and section responsibilities</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task2">
-                            <label for="task2" class="task-text">Create WhatsApp Groups for "Soccer Captains" and "Stall Holders"</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task3">
-                            <label for="task3" class="task-text">Create and distribute the Stall Holder sign-up form</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task4">
-                            <label for="task4" class="task-text">Set up the Square payment page for coupons</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task5">
-                            <label for="task5" class="task-text">Finalise PayID details and screenshot submission form</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task6">
-                            <label for="task6" class="task-text">Confirm Derrick Mar has a plan for goal posts & cones</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task7">
-                            <label for="task7" class="task-text">Draft initial budget for event expenses</label>
-                        </li>
-                    </ul>
+            <div class="navigation-menu">
+                <div class="nav-links">
+                    <a href="https://cornerstonesydney.github.io/shine/" class="nav-link">Adults Soccer</a>
+                    <a href="https://cornerstonesydney.github.io/shine/kids-registration" class="nav-link">Kids Soccer</a>
+                    <a href="https://cornerstonesydney.github.io/shine/stall-holders" class="nav-link">Stall Holders</a>
+                    <a href="https://cornerstonesydney.github.io/shine/volunteers" class="nav-link">Volunteers</a>
+                    <a href="#" class="nav-link current">Event Hub</a>
                 </div>
+            </div>
 
-                <div class="phase-section">
-                    <div class="phase-title">Phase 2: Promotion & Recruitment (16 July - 3 Aug 2025)</div>
-                    <ul class="task-list">
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task8">
-                            <label for="task8" class="task-text">Distribute announcement scripts and media assets weekly</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task9">
-                            <label for="task9" class="task-text">Monitor player and stall holder sign-ups</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task10">
-                            <label for="task10" class="task-text">Actively push pre-purchase of coupons</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task11">
-                            <label for="task11" class="task-text">Recruit a dedicated First Aid officer/team</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task12">
-                            <label for="task12" class="task-text">Follow up with Volunteer Coordinator on recruitment</label>
-                        </li>
-                    </ul>
-                </div>
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="overview">Overview</button>
+                <button class="tab-btn" data-tab="checklist">Master Checklist</button>
+                <button class="tab-btn" data-tab="roles">Roles & Tasks</button>
+                <button class="tab-btn" data-tab="tournament">Tournament</button>
+                <button class="tab-btn" data-tab="resources">Resources</button>
+            </div>
 
-                <div class="phase-section">
-                    <div class="phase-title">Phase 3: Final Preparations (4 Aug - 9 Aug 2025)</div>
-                    <ul class="task-list">
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task13">
-                            <label for="task13" class="task-text">Create and publish the final tournament schedule</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task14">
-                            <label for="task14" class="task-text">Send final logistics email to all leads</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task15">
-                            <label for="task15" class="task-text">Confirm volunteer roles and create shift roster</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task16">
-                            <label for="task16" class="task-text">Purchase required event supplies</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task17">
-                            <label for="task17" class="task-text">Prepare cash float and on-day sales system</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task18">
-                            <label for="task18" class="task-text">Final site check of Powells Creek Reserve</label>
-                        </li>
-                    </ul>
-                </div>
+            <!-- Overview Section -->
+            <div id="overview" class="content-section active">
+                <div class="section-content">
+                    <h2 class="section-title">Event Overview</h2>
+                    <p class="section-description">Soccer Slam 2025 is our annual all-church tournament bringing together 8 congregations for a day of friendly competition, delicious food, and fellowship. This hub contains everything organizers need to successfully coordinate the event.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">Aug 10</div>
+                            <div class="stat-label">Event Date</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Adult Teams</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4+</div>
+                            <div class="stat-label">Kids Teams</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1:30 PM</div>
+                            <div class="stat-label">Start Time</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Food Stalls</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3.5</div>
+                            <div class="stat-label">Hours of Fun</div>
+                        </div>
+                    </div>
 
-                <div class="phase-section">
-                    <div class="phase-title">Phase 4: Event Day (10 Aug 2025)</div>
-                    <ul class="task-list">
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task19">
-                            <label for="task19" class="task-text">12:30 PM: Site setup begins</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task20">
-                            <label for="task20" class="task-text">1:00 PM: Team Captains & Stall Holders briefing</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task21">
-                            <label for="task21" class="task-text">1:15 PM: Volunteers briefing</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task22">
-                            <label for="task22" class="task-text">1:30 PM: Tournament & Stalls officially begin</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task23">
-                            <label for="task23" class="task-text">4:45 PM: Final matches conclude, trophy presentation</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task24">
-                            <label for="task24" class="task-text">5:00 PM: Event concludes, pack-down begins</label>
-                        </li>
-                    </ul>
-                </div>
+                    <h3 style="color: #DB3328; margin-bottom: 15px;">Project Timeline</h3>
+                    <div class="chart-container">
+                        <canvas id="timelineChart"></canvas>
+                    </div>
 
-                <div class="phase-section">
-                    <div class="phase-title">Phase 5: Post-Event (Week of 11 Aug 2025)</div>
-                    <ul class="task-list">
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task25">
-                            <label for="task25" class="task-text">Send thank you messages to all volunteers and leads</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task26">
-                            <label for="task26" class="task-text">Reconcile all finances</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task27">
-                            <label for="task27" class="task-text">Announce total funds raised for mission partners</label>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" id="task28">
-                            <label for="task28" class="task-text">Collect feedback from SHINE committee</label>
-                        </li>
+                    <h3 style="color: #DB3328; margin-bottom: 15px;">Key Details</h3>
+                    <ul style="color: #666; line-height: 1.8;">
+                        <li><strong>Location:</strong> Powells Creek Reserve, Homebush</li>
+                        <li><strong>Setup:</strong> 12:30 PM arrival for setup crew</li>
+                        <li><strong>Event:</strong> 1:30 PM - 5:00 PM</li>
+                        <li><strong>Adult Tournament:</strong> 7-a-side (minimum 1 female per team)</li>
+                        <li><strong>Kids Tournament:</strong> Mixed random teams, all ages 4-17</li>
+                        <li><strong>Food Stalls:</strong> 8 congregation stalls + 1 mission stall</li>
+                        <li><strong>Purpose:</strong> Fellowship and fundraising for mission partners</li>
                     </ul>
                 </div>
             </div>
-        </div>
 
-        <!-- Roles & Tasks Section -->
-        <div id="roles" class="content-section">
-            <div class="section-content">
-                <h2 class="section-title">Roles & Tasks</h2>
-                <p class="section-description">Click on each role to expand detailed responsibilities. Every team member has a clear function for event success.</p>
-                
-                <div id="roles-accordion">
-                    <!-- Roles will be populated by JavaScript -->
+            <!-- Master Checklist Section -->
+            <div id="checklist" class="content-section">
+                <div class="section-content">
+                    <h2 class="section-title">Coordinator's Master Checklist</h2>
+                    <p class="section-description">This is your central command center. Track progress through each phase to ensure nothing is missed leading up to the big day.</p>
+                    
+                    <div class="phase-section">
+                        <div class="phase-title">Phase 1: Initial Setup & Planning (Complete by 15 July 2025)</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task1">
+                                <label for="task1" class="task-text">Finalise and confirm all 8 SHINE Representative roles and section responsibilities</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task2">
+                                <label for="task2" class="task-text">Create WhatsApp Groups for "Soccer Captains" and "Stall Holders"</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task3">
+                                <label for="task3" class="task-text">Create and distribute the Stall Holder sign-up form</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task4">
+                                <label for="task4" class="task-text">Set up the Square payment page for coupons</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task5">
+                                <label for="task5" class="task-text">Finalise PayID details and screenshot submission form</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task6">
+                                <label for="task6" class="task-text">Confirm Derrick Mar has a plan for goal posts & cones</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task7">
+                                <label for="task7" class="task-text">Draft initial budget for event expenses</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="phase-section">
+                        <div class="phase-title">Phase 2: Promotion & Recruitment (16 July - 3 Aug 2025)</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task8">
+                                <label for="task8" class="task-text">Distribute announcement scripts and media assets weekly</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task9">
+                                <label for="task9" class="task-text">Monitor player and stall holder sign-ups</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task10">
+                                <label for="task10" class="task-text">Actively push pre-purchase of coupons</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task11">
+                                <label for="task11" class="task-text">Recruit a dedicated First Aid officer/team</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task12">
+                                <label for="task12" class="task-text">Follow up with Volunteer Coordinator on recruitment</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="phase-section">
+                        <div class="phase-title">Phase 3: Final Preparations (4 Aug - 9 Aug 2025)</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task13">
+                                <label for="task13" class="task-text">Create and publish the final tournament schedule</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task14">
+                                <label for="task14" class="task-text">Send final logistics email to all leads</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task15">
+                                <label for="task15" class="task-text">Confirm volunteer roles and create shift roster</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task16">
+                                <label for="task16" class="task-text">Purchase required event supplies</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task17">
+                                <label for="task17" class="task-text">Prepare cash float and on-day sales system</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task18">
+                                <label for="task18" class="task-text">Final site check of Powells Creek Reserve</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="phase-section">
+                        <div class="phase-title">Phase 4: Event Day (10 Aug 2025)</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task19">
+                                <label for="task19" class="task-text">12:30 PM: Site setup begins</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task20">
+                                <label for="task20" class="task-text">1:00 PM: Team Captains & Stall Holders briefing</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task21">
+                                <label for="task21" class="task-text">1:15 PM: Volunteers briefing</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task22">
+                                <label for="task22" class="task-text">1:30 PM: Tournament & Stalls officially begin</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task23">
+                                <label for="task23" class="task-text">4:45 PM: Final matches conclude, trophy presentation</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task24">
+                                <label for="task24" class="task-text">5:00 PM: Event concludes, pack-down begins</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="phase-section">
+                        <div class="phase-title">Phase 5: Post-Event (Week of 11 Aug 2025)</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task25">
+                                <label for="task25" class="task-text">Send thank you messages to all volunteers and leads</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task26">
+                                <label for="task26" class="task-text">Reconcile all finances</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task27">
+                                <label for="task27" class="task-text">Announce total funds raised for mission partners</label>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox" id="task28">
+                                <label for="task28" class="task-text">Collect feedback from SHINE committee</label>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Tournament Section -->
-        <div id="tournament" class="content-section">
-            <div class="section-content">
-                <h2 class="section-title">Tournament Schedule & Bracket</h2>
-                <p class="section-description">Complete schedule ensuring every adult team plays at least two games, with kids games slotted throughout.</p>
-                
-                <h3 style="color: #DB3328; margin-bottom: 15px;">Game Schedule</h3>
-                <table class="schedule-table">
-                    <thead>
-                        <tr>
-                            <th>Time</th>
-                            <th>Field 1</th>
-                            <th>Field 2</th>
-                            <th>Field 3</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>1:30 PM</strong></td>
-                            <td>Quarter-Final 1</td>
-                            <td>Quarter-Final 2</td>
-                            <td>Quarter-Final 3</td>
-                        </tr>
-                        <tr>
-                            <td><strong>2:15 PM</strong></td>
-                            <td>Quarter-Final 4</td>
-                            <td>Kids Game 1</td>
-                            <td>Kids Game 2</td>
-                        </tr>
-                        <tr>
-                            <td><strong>3:00 PM</strong></td>
-                            <td>Semi-Final 1</td>
-                            <td>Semi-Final 2</td>
-                            <td>Consolation 1</td>
-                        </tr>
-                        <tr>
-                            <td><strong>3:45 PM</strong></td>
-                            <td>Consolation 2</td>
-                            <td>Kids Game 3</td>
-                            <td>Kids Game 4</td>
-                        </tr>
-                        <tr>
-                            <td><strong>4:30 PM</strong></td>
-                            <td style="color: #DB3328; font-weight: bold;">GRAND FINAL</td>
-                            <td>3rd Place Playoff</td>
-                            <td>(Field Free)</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3 style="color: #DB3328; margin-bottom: 15px;">Tournament Bracket</h3>
-                <div class="bracket">
-                    <div class="bracket-round">
-                        <div class="bracket-match">Kogarah</div>
-                        <div class="bracket-match">Kellyville</div>
-                        <div class="bracket-match">Rhodes</div>
-                        <div class="bracket-match">Eastwood</div>
-                        <div class="bracket-match">Concord</div>
-                        <div class="bracket-match">Willoughby</div>
-                        <div class="bracket-match">Strathfield</div>
-                        <div class="bracket-match">Homebush Bay</div>
-                    </div>
-                    <div class="bracket-round">
-                        <div class="bracket-match">QF1 Winner</div>
-                        <div class="bracket-match">QF2 Winner</div>
-                        <div class="bracket-match">QF3 Winner</div>
-                        <div class="bracket-match">QF4 Winner</div>
-                    </div>
-                    <div class="bracket-round">
-                        <div class="bracket-match">Semi 1</div>
-                        <div class="bracket-match">Semi 2</div>
-                    </div>
-                    <div class="bracket-round">
-                        <div class="bracket-match" style="background: #fef3c7; border-color: #f59e0b; font-weight: bold;">FINAL</div>
+            <!-- Roles & Tasks Section -->
+            <div id="roles" class="content-section">
+                <div class="section-content">
+                    <h2 class="section-title">Roles & Tasks</h2>
+                    <p class="section-description">Click on each role to expand detailed responsibilities. Every team member has a clear function for event success.</p>
+                    
+                    <div id="roles-accordion">
+                        <!-- Roles will be populated by JavaScript -->
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Resources Section -->
-        <div id="resources" class="content-section">
-            <div class="section-content">
-                <h2 class="section-title">Resources & Templates</h2>
-                <p class="section-description">Copy-ready announcement scripts and essential links for promoting the event and coordinating teams.</p>
-                
-                <div id="templates-container">
-                    <!-- Templates will be populated by JavaScript -->
+            <!-- Tournament Section -->
+            <div id="tournament" class="content-section">
+                <div class="section-content">
+                    <h2 class="section-title">Tournament Schedule & Bracket</h2>
+                    <p class="section-description">Complete schedule ensuring every adult team plays at least two games, with kids games slotted throughout.</p>
+                    
+                    <h3 style="color: #DB3328; margin-bottom: 15px;">Game Schedule</h3>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Field 1</th>
+                                <th>Field 2</th>
+                                <th>Field 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1:30 PM</strong></td>
+                                <td>Quarter-Final 1</td>
+                                <td>Quarter-Final 2</td>
+                                <td>Quarter-Final 3</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2:15 PM</strong></td>
+                                <td>Quarter-Final 4</td>
+                                <td>Kids Game 1</td>
+                                <td>Kids Game 2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3:00 PM</strong></td>
+                                <td>Semi-Final 1</td>
+                                <td>Semi-Final 2</td>
+                                <td>Consolation 1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3:45 PM</strong></td>
+                                <td>Consolation 2</td>
+                                <td>Kids Game 3</td>
+                                <td>Kids Game 4</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4:30 PM</strong></td>
+                                <td style="color: #DB3328; font-weight: bold;">GRAND FINAL</td>
+                                <td>3rd Place Playoff</td>
+                                <td>(Field Free)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="color: #DB3328; margin-bottom: 15px;">Tournament Bracket</h3>
+                    <div class="bracket">
+                        <div class="bracket-round">
+                            <div class="bracket-match">Kogarah</div>
+                            <div class="bracket-match">Kellyville</div>
+                            <div class="bracket-match">Rhodes</div>
+                            <div class="bracket-match">Eastwood</div>
+                            <div class="bracket-match">Concord</div>
+                            <div class="bracket-match">Willoughby</div>
+                            <div class="bracket-match">Strathfield</div>
+                            <div class="bracket-match">Homebush Bay</div>
+                        </div>
+                        <div class="bracket-round">
+                            <div class="bracket-match">QF1 Winner</div>
+                            <div class="bracket-match">QF2 Winner</div>
+                            <div class="bracket-match">QF3 Winner</div>
+                            <div class="bracket-match">QF4 Winner</div>
+                        </div>
+                        <div class="bracket-round">
+                            <div class="bracket-match">Semi 1</div>
+                            <div class="bracket-match">Semi 2</div>
+                        </div>
+                        <div class="bracket-round">
+                            <div class="bracket-match" style="background: #fef3c7; border-color: #f59e0b; font-weight: bold;">FINAL</div>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <h3 style="color: #DB3328; margin-bottom: 15px; margin-top: 30px;">Important Links</h3>
-                <ul class="links-list">
-                    <li>🏃‍♂️ <strong>Player Sign-up:</strong> <a href="https://cornerstonesydney.github.io/shine/" target="_blank">cornerstonesydney.github.io/shine/</a></li>
-                    <li>👶 <strong>Kids Registration:</strong> <a href="https://cornerstonesydney.github.io/shine/kids-registration" target="_blank">Kids Tournament Form</a></li>
-                    <li>🍕 <strong>Stall Holders:</strong> <span style="color: #888;">[Link to be updated when deployed]</span></li>
-                    <li>🙋‍♀️ <strong>Volunteers:</strong> <span style="color: #888;">[Link to be updated when deployed]</span></li>
-                    <li>💰 <strong>Coupon Purchase:</strong> <span style="color: #888;">[Square link to be created]</span></li>
-                    <li>💳 <strong>PayID Confirmation:</strong> <span style="color: #888;">[Form to be created]</span></li>
-                    <li>⚽ <strong>Captains' WhatsApp:</strong> <span style="color: #888;">[Group to be created]</span></li>
-                    <li>🍽️ <strong>Stall Holders' WhatsApp:</strong> <span style="color: #888;">[Group to be created]</span></li>
-                    <li>📁 <strong>Previous Years:</strong> <a href="https://drive.google.com/drive/folders/1OiEYu9nXGDNGpJHNn-o-69Rn-zJV8mlj" target="_blank">Google Drive Folder</a></li>
-                </ul>
+            <!-- Resources Section -->
+            <div id="resources" class="content-section">
+                <div class="section-content">
+                    <h2 class="section-title">Resources & Templates</h2>
+                    <p class="section-description">Copy-ready announcement scripts and essential links for promoting the event and coordinating teams.</p>
+                    
+                    <div id="templates-container">
+                        <!-- Templates will be populated by JavaScript -->
+                    </div>
+
+                    <h3 style="color: #DB3328; margin-bottom: 15px; margin-top: 30px;">Important Links</h3>
+                    <ul class="links-list">
+                        <li>🏃‍♂️ <strong>Player Sign-up:</strong> <a href="https://cornerstonesydney.github.io/shine/" target="_blank">cornerstonesydney.github.io/shine/</a></li>
+                        <li>👶 <strong>Kids Registration:</strong> <a href="https://cornerstonesydney.github.io/shine/kids-registration" target="_blank">Kids Tournament Form</a></li>
+                        <li>🍕 <strong>Stall Holders:</strong> <a href="https://cornerstonesydney.github.io/shine/stall-holders" target="_blank">Stall Holders Form</a></li>
+                        <li>🙋‍♀️ <strong>Volunteers:</strong> <a href="https://cornerstonesydney.github.io/shine/volunteers" target="_blank">Volunteers Form</a></li>
+                        <li>💰 <strong>Coupon Purchase:</strong> <span style="color: #888;">[Square link to be created]</span></li>
+                        <li>💳 <strong>PayID Confirmation:</strong> <span style="color: #888;">[Form to be created]</span></li>
+                        <li>⚽ <strong>Captains' WhatsApp:</strong> <span style="color: #888;">[Group to be created]</span></li>
+                        <li>🍽️ <strong>Stall Holders' WhatsApp:</strong> <span style="color: #888;">[Group to be created]</span></li>
+                        <li>🍽️ <strong>Volunteers' WhatsApp:</strong> <span style="color: #888;"><a href="https://chat.whatsapp.com/BdocQzKJhz8F12sLYqjvN6" target="_blank">Volunteer Chat</a></span></li>
+                        <li>🍽️ <strong>Stall Holders' WhatsApp:</strong> <span style="color: #888;">[Group to be created]</span></li>
+                        <li>📁 <strong>Previous Years:</strong> <a href="https://drive.google.com/drive/folders/1OiEYu9nXGDNGpJHNn-o-69Rn-zJV8mlj" target="_blank">Google Drive Folder</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Tab navigation
+        // Configuration
+        const ACCESS_CODE = 'SHINE@2025#'; // Change this to your desired password
+        const SESSION_KEY = 'soccerSlamAccess';
+
+        // Check if already authenticated
         document.addEventListener('DOMContentLoaded', function() {
+            const isAuthenticated = sessionStorage.getItem(SESSION_KEY);
+            if (isAuthenticated === 'granted') {
+                showMainContent();
+            }
+        });
+
+        // Handle password form submission
+        document.getElementById('passwordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const enteredPassword = document.getElementById('passwordInput').value.trim();
+            const errorElement = document.getElementById('passwordError');
+            
+            if (enteredPassword === ACCESS_CODE) {
+                // Correct password
+                sessionStorage.setItem(SESSION_KEY, 'granted');
+                showMainContent();
+            } else {
+                // Wrong password
+                errorElement.style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').focus();
+                
+                // Shake effect
+                const container = document.querySelector('.password-container');
+                container.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    container.style.animation = '';
+                }, 500);
+            }
+        });
+
+        // Show main content and hide password overlay
+        function showMainContent() {
+            document.getElementById('passwordOverlay').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            
+            // Initialize all the Event Hub functionality
+            initializeEventHub();
+        }
+
+        // Logout function
+        function logout() {
+            sessionStorage.removeItem(SESSION_KEY);
+            document.getElementById('passwordOverlay').style.display = 'flex';
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('passwordError').style.display = 'none';
+        }
+
+        // Initialize Event Hub functionality
+        function initializeEventHub() {
             const tabButtons = document.querySelectorAll('.tab-btn');
             const contentSections = document.querySelectorAll('.content-section');
 
@@ -798,7 +1029,7 @@
 
             // Initialize timeline chart
             initializeTimelineChart();
-        });
+        }
 
         function initializeRolesAccordion() {
             const rolesData = [
