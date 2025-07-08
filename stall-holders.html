@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stall Holders Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #BCBDC0 0%, #DB3328 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .navigation-menu {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: #DB3328;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 2px solid #DB3328;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+
+        .nav-link:hover {
+            background: #DB3328;
+            color: white;
+        }
+
+        .nav-link.current {
+            background: #DB3328;
+            color: white;
+        }
+
+        .tournament-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #DB3328;
+        }
+
+        .tournament-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tournament-info ul {
+            color: #666;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .tournament-info li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tournament-info li:before {
+            content: "🍕";
+            position: absolute;
+            left: 0;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .form-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .congregation-section {
+            border-left: 4px solid #DB3328;
+        }
+
+        .contact-section {
+            border-left: 4px solid #BCBDC0;
+        }
+
+        .stall-section {
+            border-left: 4px solid #f97316;
+        }
+
+        .requirements-section {
+            border-left: 4px solid #10b981;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .required {
+            color: #DB3328;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+            font-family: inherit;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #DB3328;
+            box-shadow: 0 0 0 3px rgba(219, 51, 40, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-option:hover {
+            border-color: #DB3328;
+            background: #fdf2f2;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            margin: 0;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-option:has(input[type="checkbox"]:checked) {
+            border-color: #DB3328;
+            background: #fdf2f2;
+        }
+
+        .checkbox-option label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1em;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(219, 51, 40, 0.3);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .loading {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #DB3328;
+            margin-top: 20px;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e0e0e0;
+            border-top: 2px solid #DB3328;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .info-box {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #0066cc;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" alt="Tournament Logo" class="logo">
+            <h1>🍕 Stall Holders</h1>
+            <p>Registration</p>
+        </div>
+
+        <div class="navigation-menu">
+            <div class="nav-links">
+                <a href="https://cornerstonesydney.github.io/shine/" class="nav-link">Adults Soccer</a>
+                <a href="https://cornerstonesydney.github.io/shine/kids-registration" class="nav-link">Kids Soccer</a>
+                <a href="#" class="nav-link current">Stall Holders</a>
+                <a href="#" class="nav-link">Volunteers</a>
+                <a href="#" class="nav-link">Event Hub</a>
+            </div>
+        </div>
+
+        <div class="tournament-info">
+            <h3>Stall Holder Guidelines</h3>
+            <ul>
+                <li><strong>Payment:</strong> Accept coupons as primary payment ($5, $10, $15 values)</li>
+                <li><strong>Equipment:</strong> Bring your own tables, marquee, and cooking equipment</li>
+                <li><strong>Power:</strong> No external power available - LP gas only</li>
+                <li><strong>Setup:</strong> 12:30 PM setup, 5:00 PM pack down</li>
+                <li><strong>Food Safety:</strong> Follow all food handling guidelines</li>
+            </ul>
+        </div>
+
+        <form id="registrationForm">
+            <div class="form-section congregation-section">
+                <h3>🏛️ Congregation Details</h3>
+                <div class="form-group">
+                    <label for="congregation">Select Your Congregation <span class="required">*</span></label>
+                    <select id="congregation" name="congregation" required>
+                        <option value="">Choose your congregation</option>
+                        <option value="Concord">Concord</option>
+                        <option value="Eastwood">Eastwood</option>
+                        <option value="Homebush Bay">Homebush Bay</option>
+                        <option value="Kellyville">Kellyville</option>
+                        <option value="Kogarah">Kogarah</option>
+                        <option value="Rhodes">Rhodes</option>
+                        <option value="Strathfield">Strathfield</option>
+                        <option value="Willoughby">Willoughby</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section contact-section">
+                <h3>👤 Contact Person</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactName">Contact Name <span class="required">*</span></label>
+                        <input type="text" id="contactName" name="contactName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="e.g., 0400 123 456">
+                    </div>
+                    <div class="form-group">
+                        <label for="backupContact">Backup Contact</label>
+                        <input type="text" id="backupContact" name="backupContact" placeholder="Name & phone number">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section stall-section">
+                <h3>🍽️ Stall Details</h3>
+                
+                <div class="form-group">
+                    <label for="stallName">Stall Name <span class="required">*</span></label>
+                    <input type="text" id="stallName" name="stallName" required placeholder="e.g., Concord Café, Eastwood Eats">
+                </div>
+
+                <div class="form-group">
+                    <label for="foodType">Type of Food/Items <span class="required">*</span></label>
+                    <select id="foodType" name="foodType" required>
+                        <option value="">Select food type</option>
+                        <option value="hot-food">Hot Food (requires cooking)</option>
+                        <option value="cold-food">Cold Food (sandwiches, salads, etc.)</option>
+                        <option value="drinks">Drinks & Beverages</option>
+                        <option value="desserts">Desserts & Sweets</option>
+                        <option value="snacks">Snacks & Light Items</option>
+                        <option value="mixed">Mixed Items</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="menuItems">Menu Items & Pricing <span class="required">*</span></label>
+                    <textarea id="menuItems" name="menuItems" required placeholder="List your planned menu items and their coupon values (1, 2, or 3 coupons = $5, $10, $15). E.g.:&#10;• Sausage Roll - 1 coupon ($5)&#10;• Chicken Burger - 2 coupons ($10)&#10;• BBQ Combo - 3 coupons ($15)"></textarea>
+                    <div class="info-box">
+                        💡 Remember: Price items at 1, 2, or 3 coupons only ($5, $10, $15 values)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="specialRequirements">Special Equipment/Setup Requirements</label>
+                    <textarea id="specialRequirements" name="specialRequirements" placeholder="Any special equipment you're bringing or setup requirements we should know about..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-section requirements-section">
+                <h3>✅ Requirements & Acknowledgments</h3>
+                
+                <div class="checkbox-group">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="acknowledge1" name="acknowledgeRequirements" value="no-power" required>
+                        <label for="acknowledge1">I understand that NO external power will be available. I will use battery-powered equipment or LP gas only.</label>
+                    </div>
+                    
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="acknowledge2" name="acknowledgeRequirements" value="food-safety" required>
+                        <label for="acknowledge2">I will follow all food safety guidelines and am responsible for my own food handling compliance.</label>
+                    </div>
+                    
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="acknowledge3" name="acknowledgeRequirements" value="coupon-payment" required>
+                        <label for="acknowledge3">I understand that coupons are the primary payment method and will be prepared to accept them.</label>
+                    </div>
+                    
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="acknowledge4" name="acknowledgeRequirements" value="setup-cleanup" required>
+                        <label for="acknowledge4">I will bring my own tables/marquee, arrive by 12:30 PM for setup, and completely clean my area by 6:00 PM.</label>
+                    </div>
+                    
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="acknowledge5" name="acknowledgeRequirements" value="whatsapp-group" required>
+                        <label for="acknowledge5">I will join the Stall Holders WhatsApp group for important updates and coordination.</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Register as Stall Holder
+            </button>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <span>Submitting registration...</span>
+            </div>
+
+            <div class="message" id="message"></div>
+        </form>
+    </div>
+
+    <script>
+        // Handle form submission
+        const form = document.getElementById('registrationForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loading = document.getElementById('loading');
+        const message = document.getElementById('message');
+
+        // Replace with your Google Apps Script URL
+        const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Validate that all required checkboxes are checked
+            const requiredCheckboxes = document.querySelectorAll('input[name="acknowledgeRequirements"][required]');
+            const allChecked = Array.from(requiredCheckboxes).every(checkbox => checkbox.checked);
+            
+            if (!allChecked) {
+                showMessage('Please acknowledge all requirements by checking all boxes.', 'error');
+                return;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            loading.style.display = 'flex';
+            message.style.display = 'none';
+
+            try {
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Handle multiple checkbox values
+                const acknowledgedRequirements = Array.from(requiredCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+                data.acknowledgedRequirements = acknowledgedRequirements.join(', ');
+                
+                // Add form type and timestamp
+                data.formType = 'stallholder';
+                data.timestamp = new Date().toISOString();
+
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                // Since we're using no-cors mode, we can't read the response
+                // Assume success if no error was thrown
+                showMessage('Stall registration submitted successfully! 🍕 You will be added to the Stall Holders WhatsApp group and receive further details soon.', 'success');
+                form.reset();
+
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Registration failed. Please try again or contact the organizer.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                loading.style.display = 'none';
+            }
+        });
+
+        function showMessage(text, type) {
+            message.textContent = text;
+            message.className = `message ${type}`;
+            message.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
