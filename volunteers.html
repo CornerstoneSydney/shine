@@ -1,1 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteers Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #BCBDC0 0%, #DB3328 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .navigation-menu {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: #DB3328;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 2px solid #DB3328;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+
+        .nav-link:hover {
+            background: #DB3328;
+            color: white;
+        }
+
+        .nav-link.current {
+            background: #DB3328;
+            color: white;
+        }
+
+        .tournament-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #DB3328;
+        }
+
+        .tournament-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tournament-info ul {
+            color: #666;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .tournament-info li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tournament-info li:before {
+            content: "🙋‍♀️";
+            position: absolute;
+            left: 0;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .form-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .personal-section {
+            border-left: 4px solid #DB3328;
+        }
+
+        .availability-section {
+            border-left: 4px solid #BCBDC0;
+        }
+
+        .roles-section {
+            border-left: 4px solid #10b981;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .required {
+            color: #DB3328;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+            font-family: inherit;
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #DB3328;
+            box-shadow: 0 0 0 3px rgba(219, 51, 40, 0.1);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-option:hover {
+            border-color: #DB3328;
+            background: #fdf2f2;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            margin: 0;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkbox-option:has(input[type="checkbox"]:checked) {
+            border-color: #DB3328;
+            background: #fdf2f2;
+        }
+
+        .checkbox-option .role-details {
+            flex: 1;
+        }
+
+        .checkbox-option .role-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            cursor: pointer;
+        }
+
+        .checkbox-option .role-description {
+            font-size: 0.9em;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(219, 51, 40, 0.3);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .loading {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #DB3328;
+            margin-top: 20px;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e0e0e0;
+            border-top: 2px solid #DB3328;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .info-box {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #0066cc;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" alt="Tournament Logo" class="logo">
+            <h1>🙋‍♀️ Volunteers</h1>
+            <p>Registration</p>
+        </div>
+
+        <div class="navigation-menu">
+            <div class="nav-links">
+                <a href="https://cornerstonesydney.github.io/shine/" class="nav-link">Adults Soccer</a>
+                <a href="https://cornerstonesydney.github.io/shine/kids-registration" class="nav-link">Kids Soccer</a>
+                <a href="#" class="nav-link">Stall Holders</a>
+                <a href="#" class="nav-link current">Volunteers</a>
+                <a href="#" class="nav-link">Event Hub</a>
+            </div>
+        </div>
+
+        <div class="tournament-info">
+            <h3>Volunteer Opportunities</h3>
+            <ul>
+                <li><strong>Setup Team:</strong> Help mark fields and set up tents (12:30-1:30 PM)</li>
+                <li><strong>Event Support:</strong> Parking assistance, stall help, coupon sales (1:30-5:00 PM)</li>
+                <li><strong>Clean-up Crew:</strong> The most important job - leave the reserve spotless! (5:00-6:00 PM)</li>
+                <li><strong>Flexible:</strong> Choose roles that fit your availability</li>
+                <li><strong>Community:</strong> Great way to serve and be part of the action</li>
+            </ul>
+        </div>
+
+        <form id="registrationForm">
+            <div class="form-section personal-section">
+                <h3>👤 Personal Details</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="e.g., 0400 123 456">
+                    </div>
+                    <div class="form-group">
+                        <label for="congregation">Home Congregation</label>
+                        <select id="congregation" name="congregation">
+                            <option value="">Select congregation (optional)</option>
+                            <option value="Concord">Concord</option>
+                            <option value="Eastwood">Eastwood</option>
+                            <option value="Homebush Bay">Homebush Bay</option>
+                            <option value="Kellyville">Kellyville</option>
+                            <option value="Kogarah">Kogarah</option>
+                            <option value="Rhodes">Rhodes</option>
+                            <option value="Strathfield">Strathfield</option>
+                            <option value="Willoughby">Willoughby</option>
+                            <option value="Other">Other/Visiting</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="emergencyContact">Emergency Contact</label>
+                    <input type="text" id="emergencyContact" name="emergencyContact" placeholder="Name & phone number">
+                </div>
+            </div>
+
+            <div class="form-section availability-section">
+                <h3>⏰ Availability</h3>
+                
+                <div class="form-group">
+                    <label for="availability">When are you available? <span class="required">*</span></label>
+                    <select id="availability" name="availability" required>
+                        <option value="">Select your availability</option>
+                        <option value="full-day">Full Day (12:30 PM - 6:00 PM)</option>
+                        <option value="setup-only">Setup Only (12:30 PM - 1:30 PM)</option>
+                        <option value="event-time">Event Time (1:30 PM - 5:00 PM)</option>
+                        <option value="cleanup-only">Clean-up Only (5:00 PM - 6:00 PM)</option>
+                        <option value="morning-shift">Morning Shift (12:30 PM - 3:00 PM)</option>
+                        <option value="afternoon-shift">Afternoon Shift (3:00 PM - 6:00 PM)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="specialSkills">Special Skills or Experience</label>
+                    <textarea id="specialSkills" name="specialSkills" placeholder="Any relevant experience (e.g., first aid certification, sound equipment, sports organization, etc.)"></textarea>
+                </div>
+            </div>
+
+            <div class="form-section roles-section">
+                <h3>🎯 Preferred Volunteer Roles</h3>
+                <p style="margin-bottom: 15px; color: #666;">Select all roles you're interested in. We'll match you to roles based on your availability and preferences.</p>
+                
+                <div class="checkbox-group">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="role-setup" name="preferredRoles" value="setup-crew">
+                        <div class="role-details">
+                            <div class="role-title">Setup Crew (12:30-1:30 PM)</div>
+                            <div class="role-description">Help mark soccer fields, set up tents, tables, and signage</div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="role-parking" name="preferredRoles" value="parking-attendant">
+                        <div class="role-details">
+                            <div class="role-title">Parking Attendant (1:00-2:30 PM)</div>
+                            <div class="role-description">Guide cars and ensure efficient parking at the reserve</div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="role-stall-helper" name="preferredRoles" value="stall-assistant">
+                        <div class="role-details">
+                            <div class="role-title">Stall Assistant (Various Shifts)</div>
+                            <div class="role-description">Help stall holders with serving customers and taking coupons</div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="role-coupon-sales" name="preferredRoles" value="coupon-sales">
+                        <div class="role-details">
+                            <div class="role-title">Coupon Sales (1:30-5:00 PM)</div>
+                            <div class="role-description">Staff the info tent to sell coupons via Square/cash payments</div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="role-info-desk" name="preferredRoles" value="info-desk">
+                        <div class="role-details">
+                            <div class="role-title">Information Desk (1:30-5:00 PM)</div>
+                            <div class="role-description">Answer questions, provide directions, and assist visitors</div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="role-cleanup" name="preferredRoles" value="cleanup-crew">
+                        <div class="role-details">
+                            <div class="role-title">Clean-up Crew (5:00-6:00 PM) ⭐</div>
+                            <div class="role-description">Most important role! Ensure the reserve is left spotless</div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="role-floater" name="preferredRoles" value="general-helper">
+                        <div class="role-details">
+                            <div class="role-title">General Helper/Floater</div>
+                            <div class="role-description">Flexible helper to be deployed where needed most</div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="role-first-aid" name="preferredRoles" value="first-aid">
+                        <div class="role-details">
+                            <div class="role-title">First Aid Support</div>
+                            <div class="role-description">Assist with first aid station (certification required)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    💡 Don't worry about selecting too many - we'll work with you to find the perfect role match!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="additionalComments">Additional Comments or Requests</label>
+                <textarea id="additionalComments" name="additionalComments" placeholder="Any additional information, special requests, or things we should know..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Register as Volunteer
+            </button>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <span>Submitting registration...</span>
+            </div>
+
+            <div class="message" id="message"></div>
+        </form>
+    </div>
+
+    <script>
+        // Handle form submission
+        const form = document.getElementById('registrationForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loading = document.getElementById('loading');
+        const message = document.getElementById('message');
+
+        // Replace with your Google Apps Script URL
+        const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Show loading state
+            submitBtn.disabled = true;
+            loading.style.display = 'flex';
+            message.style.display = 'none';
+
+            try {
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Handle multiple checkbox values for preferred roles
+                const preferredRoles = Array.from(document.querySelectorAll('input[name="preferredRoles"]:checked'))
+                    .map(cb => cb.value);
+                data.preferredRoles = preferredRoles.join(', ');
+                
+                // Add form type and timestamp
+                data.formType = 'volunteer';
+                data.timestamp = new Date().toISOString();
+
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                // Since we're using no-cors mode, we can't read the response
+                // Assume success if no error was thrown
+                showMessage('Volunteer registration submitted successfully! 🙋‍♀️ Thank you for serving! You\'ll receive role assignments and details closer to the event.', 'success');
+                form.reset();
+
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Registration failed. Please try again or contact the organizer.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                loading.style.display = 'none';
+            }
+        });
+
+        function showMessage(text, type) {
+            message.textContent = text;
+            message.className = `message ${type}`;
+            message.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
