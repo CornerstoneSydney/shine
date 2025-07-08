@@ -59,6 +59,42 @@
             font-size: 1.1em;
         }
 
+        .navigation-menu {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: #DB3328;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 2px solid #DB3328;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+
+        .nav-link:hover {
+            background: #DB3328;
+            color: white;
+        }
+
+        .nav-link.current {
+            background: #DB3328;
+            color: white;
+        }
+
         .tournament-info {
             background: #f8f9fa;
             padding: 20px;
@@ -266,30 +302,6 @@
             border: 1px solid #f5c6cb;
         }
 
-        .navigation-links {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .nav-link {
-            color: #DB3328;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px 20px;
-            border: 2px solid #DB3328;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .nav-link:hover {
-            background: #DB3328;
-            color: white;
-        }
-
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -306,6 +318,11 @@
             .radio-group {
                 flex-direction: column;
             }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -317,9 +334,14 @@
             <p>Player Registration</p>
         </div>
 
-        <div class="navigation-links">
-            <p style="margin-bottom: 15px; color: #666;">Looking for kids registration?</p>
-            <a href="https://cornerstonesydney.github.io/shine/kids-registration" class="nav-link">Kids Tournament Registration →</a>
+        <div class="navigation-menu">
+            <div class="nav-links">
+                <a href="#" class="nav-link current">Adults Soccer</a>
+                <a href="kids-registration.html" class="nav-link">Kids Soccer</a>
+                <a href="stall-holders.html" class="nav-link">Stall Holders</a>
+                <a href="volunteers.html" class="nav-link">Volunteers</a>
+                <a href="event-hub.html" class="nav-link">Event Hub</a>
+            </div>
         </div>
 
         <div class="tournament-info">
@@ -412,7 +434,7 @@
         const message = document.getElementById('message');
 
         // Replace with your Google Apps Script URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_Hvv3HiJ0yIOELTc7YjkO69E6Oi9AZKHVj-kN3NdC6wOo_tE193rZtNCVR6i998Qi/exec';
+        const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -426,8 +448,8 @@
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
                 
-                // Add tournament type and timestamp
-                data.tournament = 'adults';
+                // Add form type and timestamp
+                data.formType = 'adults';
                 data.timestamp = new Date().toISOString();
 
                 const response = await fetch(SCRIPT_URL, {
@@ -458,6 +480,21 @@
             message.className = `message ${type}`;
             message.style.display = 'block';
         }
+
+        // Auto-highlight current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentPath = window.location.pathname;
+            
+            navLinks.forEach(link => {
+                link.classList.remove('current');
+                
+                if (link.textContent.trim() === 'Adults Soccer' && 
+                    (currentPath === '/' || currentPath.includes('index'))) {
+                    link.classList.add('current');
+                }
+            });
+        });
     </script>
 </body>
 </html>
