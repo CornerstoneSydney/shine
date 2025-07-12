@@ -321,8 +321,8 @@
     </div>
 
     <script>
-        // Replace this with your Google Apps Script URL
-        const SCRIPT_URL = https://script.google.com/macros/s/AKfycbxer8DKvrugJs3okwLZ_D-CO6Hka2u5G0tpWYY0cK6ueVfGDku-I_x4AOzJo7ZzGyA8kw/exec;
+        // Your Google Apps Script URL (now properly quoted)
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxer8DKvrugJs3okwLZ_D-CO6Hka2u5G0tpWYY0cK6ueVfGDku-I_x4AOzJo7ZzGyA8kw/exec';
         
         let refreshInterval;
 
