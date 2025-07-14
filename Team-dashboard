@@ -94,14 +94,58 @@
             color: white;
         }
 
-        .summary-cards {
+        .dashboard-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #DB3328;
+        }
+
+        .dashboard-header h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-header p {
+            color: #666;
+            font-size: 1em;
+        }
+
+        .airtable-embed {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .dashboard-footer {
+            text-align: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #f0f0f0;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .feature-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
 
-        .summary-card {
+        .feature-card {
             background: white;
             padding: 20px;
             border-radius: 15px;
@@ -109,284 +153,52 @@
             text-align: center;
         }
 
-        .summary-card h3 {
-            color: #666;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .feature-card h3 {
+            color: #DB3328;
             margin-bottom: 10px;
-        }
-
-        .summary-card .number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #DB3328;
-            margin-bottom: 5px;
-        }
-
-        .summary-card .detail {
-            font-size: 0.85em;
-            color: #666;
-        }
-
-        .teams-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .team-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-
-        .team-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #DB3328;
-        }
-
-        .team-name {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .team-status {
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.85em;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .status-ready {
-            background: #c8e6c9;
-            color: #2e7d32;
-        }
-
-        .status-need-female {
-            background: #ffcdd2;
-            color: #c62828;
-        }
-
-        .status-building {
-            background: #fff9c4;
-            color: #f57f17;
-        }
-
-        .status-empty {
-            background: #f5f5f5;
-            color: #666;
-        }
-
-        .team-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #DB3328;
-        }
-
-        .stat-label {
-            font-size: 0.8em;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .players-section {
-            margin-bottom: 15px;
-        }
-
-        .section-title {
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 12px;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .player-list {
-            display: grid;
-            gap: 8px;
-        }
-
-        .player-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .player-item:hover {
-            background: #f0f0f0;
-            transform: translateX(5px);
-        }
-
-        .player-item.core-team {
-            border-left-color: #4caf50;
-            background: #f1f8e9;
-        }
-
-        .player-item.substitute {
-            border-left-color: #ff9800;
-            background: #fff8e1;
-        }
-
-        .player-name {
-            font-weight: 500;
-            color: #333;
-        }
-
-        .player-badges {
-            display: flex;
-            gap: 6px;
-        }
-
-        .badge {
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.7em;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .badge-female {
-            background: #fce4ec;
-            color: #c2185b;
-        }
-
-        .badge-male {
-            background: #e3f2fd;
-            color: #1976d2;
-        }
-
-        .badge-core {
-            background: #e8f5e8;
-            color: #2e7d32;
-        }
-
-        .badge-sub {
-            background: #fff3e0;
-            color: #f57c00;
-        }
-
-        .empty-team {
-            text-align: center;
-            padding: 40px 20px;
-            color: #666;
-            font-style: italic;
-        }
-
-        .empty-team::before {
-            content: "⚽";
-            font-size: 3em;
-            display: block;
-            margin-bottom: 15px;
-            opacity: 0.3;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 50px;
-            color: white;
             font-size: 1.2em;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            margin: 20px 0;
         }
 
-        .loading::before {
-            content: "⚽";
-            font-size: 2em;
-            display: block;
-            margin-bottom: 15px;
-            animation: bounce 1s infinite;
+        .feature-card p {
+            color: #666;
+            font-size: 0.9em;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        .error {
-            background: white;
-            color: #c62828;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            margin: 20px 0;
-            border: 2px solid #ffcdd2;
-        }
-
-        .last-updated {
-            text-align: center;
-            color: white;
-            margin-top: 20px;
-            font-style: italic;
-            background: rgba(255,255,255,0.1);
-            padding: 10px;
+        .security-notice {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
             border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .security-notice h4 {
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+
+        .security-notice p {
+            color: #666;
+            font-size: 0.9em;
         }
 
         @media (max-width: 768px) {
-            .teams-grid {
-                grid-template-columns: 1fr;
-            }
-            
             h1 {
                 font-size: 2em;
             }
 
-            .team-header {
-                flex-direction: column;
-                gap: 10px;
-                align-items: stretch;
-            }
-
-            .team-stats {
-                flex-direction: column;
-                gap: 15px;
+            .feature-cards {
+                grid-template-columns: 1fr;
             }
 
             .nav-link {
                 display: block;
                 margin: 10px 0;
+            }
+
+            .airtable-embed {
+                height: 600px;
             }
         }
     </style>
@@ -411,259 +223,53 @@
             <a href="https://cornerstonesydney.github.io/shine/stall-holders" class="nav-link">Stall Holders</a>
         </div>
 
-        <div id="loading" class="loading">
-            Loading live team data...
+        <div class="security-notice">
+            <h4>🔒 Secure & Private</h4>
+            <p>This dashboard only shows public team information. Personal details like emails and phone numbers remain completely private.</p>
         </div>
 
-        <div id="error" class="error" style="display: none;"></div>
-
-        <div id="content" style="display: none;">
-            <div class="summary-cards" id="summaryCards">
-                <!-- Summary cards will be inserted here -->
+        <div class="feature-cards">
+            <div class="feature-card">
+                <h3>⚽ Live Updates</h3>
+                <p>Team data updates automatically as new players register. No need to refresh!</p>
             </div>
-
-            <div class="teams-grid" id="teamsContainer">
-                <!-- Team cards will be inserted here -->
+            <div class="feature-card">
+                <h3>📱 Mobile Friendly</h3>
+                <p>View team information perfectly on any device - phone, tablet, or desktop.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🏆 Team Progress</h3>
+                <p>Track each congregation's progress toward their 7-player minimum with 1+ female.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔒 Privacy Protected</h3>
+                <p>Only shows team rosters - no personal contact information is ever displayed.</p>
             </div>
         </div>
 
-        <div class="last-updated" id="lastUpdated"></div>
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2>Current Team Standings</h2>
+                <p>Live view of all congregation teams and their registration progress</p>
+            </div>
+
+            <!-- REPLACE THIS URL WITH YOUR AIRTABLE PUBLIC SHARE URL -->
+            <iframe 
+                class="airtable-embed"
+                src="<iframe class="airtable-embed" src="https://airtable.com/embed/appRcV9AEo4BHVbaO/shrB9VYPP14gaQ6kF?viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>"
+                frameborder="0"
+                onmousewheel=""
+                allowfullscreen>
+            </iframe>
+
+            <div class="dashboard-footer">
+                <p>🕐 Updates automatically • 🔒 Personal information protected • ⚽ Ready for tournament day</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; color: white; margin-top: 20px; font-style: italic; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+            <p>Questions about team registration? Contact your congregation's SHINE representative or visit the registration links above.</p>
+        </div>
     </div>
-
-    <script>
-        // ===========================================
-        // CONFIGURATION - UPDATE THESE VALUES
-        // ===========================================
-        const AIRTABLE_PAT = 'patJwXzaLJKEmXxCU.fba5e8748830cb0e5abed66f9566fff33c8a14dffd41ccd4183c0b0b3f5a6764'; // Replace with your PAT (starts with 'pat')
-        const BASE_ID = 'appRcV9AEo4BHVbaO'; // Replace with your Base ID (starts with 'app')
-        const TABLE_NAME = 'Adults Tournament'; // Your table name
-        
-        // ===========================================
-        // MAIN APPLICATION CODE
-        // ===========================================
-        
-        const CONGREGATIONS = ['Concord', 'Eastwood', 'Homebush Bay', 'Kellyville', 
-                              'Kogarah', 'Rhodes', 'Strathfield', 'Willoughby'];
-
-        async function fetchTeamData() {
-            try {
-                // Fetch data from Airtable using Personal Access Token
-                const response = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}`, {
-                    headers: {
-                        'Authorization': `Bearer ${AIRTABLE_PAT}`,
-                        'Content-Type': 'application/json'
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-                }
-
-                const data = await response.json();
-                
-                // Filter out records without names (empty rows)
-                const validRecords = data.records.filter(record => 
-                    record.fields['Full Name'] && record.fields['Full Name'].trim()
-                );
-
-                displayDashboard(validRecords);
-                
-                // Show content and hide loading
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('error').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-                
-                // Update timestamp
-                document.getElementById('lastUpdated').textContent = 
-                    `Last updated: ${new Date().toLocaleString()}`;
-
-            } catch (error) {
-                console.error('Error fetching team data:', error);
-                showError(`Failed to load team data: ${error.message}`);
-            }
-        }
-
-        function displayDashboard(records) {
-            displaySummaryCards(records);
-            displayTeams(records);
-        }
-
-        function displaySummaryCards(records) {
-            const totalPlayers = records.length;
-            const maleCount = records.filter(r => r.fields.Gender === 'Male').length;
-            const femaleCount = records.filter(r => r.fields.Gender === 'Female').length;
-            
-            let readyTeams = 0;
-            let teamsNeedingFemale = 0;
-            
-            CONGREGATIONS.forEach(congregation => {
-                const teamPlayers = records.filter(r => r.fields.Congregation === congregation);
-                const coreTeam = teamPlayers.filter(p => p.fields['Core Team Status'] === '✅ Core Team');
-                const femalesInCore = coreTeam.filter(p => p.fields.Gender === 'Female').length;
-                
-                if (coreTeam.length >= 7 && femalesInCore >= 1) {
-                    readyTeams++;
-                } else if (coreTeam.length >= 7 && femalesInCore === 0) {
-                    teamsNeedingFemale++;
-                }
-            });
-
-            const container = document.getElementById('summaryCards');
-            container.innerHTML = `
-                <div class="summary-card">
-                    <h3>Total Players</h3>
-                    <div class="number">${totalPlayers}</div>
-                    <div class="detail">${maleCount} Male, ${femaleCount} Female</div>
-                </div>
-                <div class="summary-card">
-                    <h3>Ready Teams</h3>
-                    <div class="number">${readyTeams}/8</div>
-                    <div class="detail">Complete squads ready to play</div>
-                </div>
-                <div class="summary-card">
-                    <h3>Need Female</h3>
-                    <div class="number">${teamsNeedingFemale}</div>
-                    <div class="detail">Teams need female core players</div>
-                </div>
-                <div class="summary-card">
-                    <h3>Total Congregations</h3>
-                    <div class="number">8</div>
-                    <div class="detail">Churches participating</div>
-                </div>
-            `;
-        }
-
-        function displayTeams(records) {
-            const container = document.getElementById('teamsContainer');
-            container.innerHTML = '';
-
-            CONGREGATIONS.forEach(congregation => {
-                const teamPlayers = records.filter(record => 
-                    record.fields.Congregation === congregation
-                );
-
-                const coreTeam = teamPlayers.filter(p => 
-                    p.fields['Core Team Status'] === '✅ Core Team'
-                );
-                const substitutes = teamPlayers.filter(p => 
-                    p.fields['Core Team Status'] === '⭐ Substitute'
-                );
-
-                const teamCard = createTeamCard(congregation, coreTeam, substitutes);
-                container.appendChild(teamCard);
-            });
-        }
-
-        function createTeamCard(congregation, coreTeam, substitutes) {
-            const card = document.createElement('div');
-            card.className = 'team-card';
-
-            const totalPlayers = coreTeam.length + substitutes.length;
-            const femalesInCore = coreTeam.filter(p => p.fields.Gender === 'Female').length;
-            const malesInCore = coreTeam.filter(p => p.fields.Gender === 'Male').length;
-            
-            // Determine team status
-            let status, statusClass;
-            if (totalPlayers === 0) {
-                status = 'No Players Yet';
-                statusClass = 'status-empty';
-            } else if (coreTeam.length < 7) {
-                status = `Building Team (${coreTeam.length}/7)`;
-                statusClass = 'status-building';
-            } else if (femalesInCore === 0) {
-                status = 'Need Female Core Player';
-                statusClass = 'status-need-female';
-            } else {
-                status = 'Ready to Play! ⚽';
-                statusClass = 'status-ready';
-            }
-
-            card.innerHTML = `
-                <div class="team-header">
-                    <div class="team-name">${congregation}</div>
-                    <div class="team-status ${statusClass}">${status}</div>
-                </div>
-
-                ${totalPlayers > 0 ? `
-                    <div class="team-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">${coreTeam.length}</div>
-                            <div class="stat-label">Core Team</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">${substitutes.length}</div>
-                            <div class="stat-label">Substitutes</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">${femalesInCore}</div>
-                            <div class="stat-label">Female Core</div>
-                        </div>
-                    </div>
-                ` : ''}
-
-                ${coreTeam.length > 0 ? `
-                    <div class="players-section">
-                        <div class="section-title">
-                            🏆 Core Team (${coreTeam.length}/7)
-                        </div>
-                        <div class="player-list">
-                            ${coreTeam.map(player => createPlayerItem(player, true)).join('')}
-                        </div>
-                    </div>
-                ` : ''}
-
-                ${substitutes.length > 0 ? `
-                    <div class="players-section">
-                        <div class="section-title">
-                            ⭐ Substitutes (${substitutes.length})
-                        </div>
-                        <div class="player-list">
-                            ${substitutes.map(player => createPlayerItem(player, false)).join('')}
-                        </div>
-                    </div>
-                ` : ''}
-
-                ${totalPlayers === 0 ? `
-                    <div class="empty-team">
-                        No players registered yet.<br>
-                        <a href="https://cornerstonesydney.github.io/shine/" style="color: #DB3328; text-decoration: none; font-weight: 600;">Register now!</a>
-                    </div>
-                ` : ''}
-            `;
-
-            return card;
-        }
-
-        function createPlayerItem(player, isCore) {
-            const name = player.fields['Full Name'];
-            const gender = player.fields.Gender;
-            
-            return `
-                <div class="player-item ${isCore ? 'core-team' : 'substitute'}">
-                    <span class="player-name">${name}</span>
-                    <div class="player-badges">
-                        <span class="badge badge-${gender.toLowerCase()}">${gender}</span>
-                        <span class="badge badge-${isCore ? 'core' : 'sub'}">${isCore ? 'Core' : 'Sub'}</span>
-                    </div>
-                </div>
-            `;
-        }
-
-        function showError(message) {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('content').style.display = 'none';
-            document.getElementById('error').style.display = 'block';
-            document.getElementById('error').textContent = message;
-        }
-
-        // Initial load
-        fetchTeamData();
-
-        // Auto-refresh every 2 minutes
-        setInterval(fetchTeamData, 120000);
-
-        // Add click handler to retry on error
-        document.getElementById('error').addEventListener('click', fetchTeamData);
-    </script>
 </body>
 </html>
