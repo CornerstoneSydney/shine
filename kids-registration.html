@@ -90,177 +90,6 @@
             left: 0;
         }
 
-        .form-section {
-            margin-bottom: 30px;
-            padding: 25px;
-            border: 2px solid #f0f0f0;
-            border-radius: 10px;
-            background: #fafafa;
-            border-left: 4px solid #DB3328;
-        }
-
-        .form-section h3 {
-            color: #333;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 600;
-            font-size: 1.1em;
-        }
-
-        .required {
-            color: #DB3328;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="tel"]:focus,
-        input[type="number"]:focus,
-        select:focus {
-            outline: none;
-            border-color: #DB3328;
-            box-shadow: 0 0 0 3px rgba(219, 51, 40, 0.1);
-        }
-
-        .radio-group {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            padding: 12px 18px;
-            border-radius: 8px;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s ease;
-            flex: 1;
-            min-width: 100px;
-            justify-content: center;
-        }
-
-        .radio-option:hover {
-            border-color: #DB3328;
-            background: #fdf2f2;
-        }
-
-        .radio-option input[type="radio"] {
-            margin: 0;
-        }
-
-        .radio-option input[type="radio"]:checked + span {
-            color: #DB3328;
-            font-weight: 600;
-        }
-
-        .radio-option:has(input[type="radio"]:checked) {
-            border-color: #DB3328;
-            background: #fdf2f2;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(45deg, #DB3328, #BCBDC0);
-            color: white;
-            border: none;
-            padding: 18px;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(219, 51, 40, 0.3);
-        }
-
-        .submit-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .loading {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: #DB3328;
-            margin-top: 20px;
-        }
-
-        .spinner {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #e0e0e0;
-            border-top: 2px solid #DB3328;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .message {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            display: none;
-        }
-
-        .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
         .navigation-links {
             text-align: center;
             margin-bottom: 30px;
@@ -278,6 +107,7 @@
             border-radius: 25px;
             transition: all 0.3s ease;
             display: inline-block;
+            margin: 5px;
         }
 
         .nav-link:hover {
@@ -285,13 +115,36 @@
             color: white;
         }
 
-        .age-info {
-            background: #e8f4fd;
-            padding: 15px;
+        .form-container {
+            margin-bottom: 20px;
+        }
+
+        .airtable-embed {
+            width: 100%;
+            height: 900px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: transparent;
+        }
+
+        .form-note {
+            background: #fff3e0;
+            border: 1px solid #ff9800;
             border-radius: 8px;
-            margin-top: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form-note h4 {
+            color: #f57c00;
+            margin-bottom: 8px;
+        }
+
+        .form-note p {
+            color: #666;
             font-size: 0.9em;
-            color: #0066cc;
         }
 
         @media (max-width: 600px) {
@@ -302,13 +155,14 @@
             .header h1 {
                 font-size: 2em;
             }
-            
-            .form-row {
-                grid-template-columns: 1fr;
+
+            .nav-link {
+                display: block;
+                margin: 10px 0;
             }
-            
-            .radio-group {
-                flex-direction: column;
+
+            .airtable-embed {
+                height: 1000px;
             }
         }
     </style>
@@ -322,178 +176,39 @@
         </div>
 
         <div class="navigation-links">
-            <p style="margin-bottom: 15px; color: #666;">Looking for adults registration?</p>
-            <a href="https://cornerstonesydney.github.io/shine/" class="nav-link">← Adults Tournament Registration</a>
+            <p style="margin-bottom: 15px; color: #666;">Looking for other registration forms?</p>
+            <a href="https://cornerstonesydney.github.io/shine/" class="nav-link">Adults Tournament</a>
+            <a href="https://cornerstonesydney.github.io/shine/volunteers" class="nav-link">Volunteers</a>
+            <a href="https://cornerstonesydney.github.io/shine/stall-holders" class="nav-link">Stall Holders</a>
         </div>
 
         <div class="tournament-info">
             <h3>Kids Tournament Details</h3>
             <ul>
                 <li><strong>Team Assignment:</strong> Random teams (mixed congregations)</li>
-                <li><strong>Age Groups:</strong> We'll organize by age for fair play</li>
+                <li><strong>Age Groups:</strong> We'll organize by age for fair play (4-17 years)</li>
                 <li><strong>Time:</strong> 1:30 PM - 5:00 PM</li>
                 <li><strong>Format:</strong> Fun, inclusive games for all skill levels</li>
                 <li><strong>Parent/Guardian:</strong> Must be present during the tournament</li>
+                <li><strong>Safety First:</strong> Medical information helps us keep kids safe</li>
             </ul>
         </div>
 
-        <form id="registrationForm">
-            <div class="form-section">
-                <h3>👶 Child Information</h3>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="childName">Child's Full Name <span class="required">*</span></label>
-                        <input type="text" id="childName" name="childName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="age">Age <span class="required">*</span></label>
-                        <input type="number" id="age" name="age" min="4" max="13" required>
-                        <div class="age-info">
-                            💡 Ages 4-13 welcome. We'll organize age-appropriate groups on the day.
-                        </div>
-                    </div>
-                </div>
+        <div class="form-container">
+            <iframe 
+                class="airtable-embed" 
+                src="https://airtable.com/embed/appRcV9AEo4BHVbaO/pagmArZYsiKwwWZzp/form" 
+                frameborder="0" 
+                onmousewheel="" 
+                width="100%" 
+                height="900">
+            </iframe>
+        </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Gender <span class="required">*</span></label>
-                        <div class="radio-group">
-                            <div class="radio-option">
-                                <input type="radio" id="male" name="gender" value="male" required>
-                                <span>Male</span>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="female" name="gender" value="female" required>
-                                <span>Female</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="congregation">Home Congregation</label>
-                        <select id="congregation" name="congregation">
-                            <option value="">Select congregation (optional)</option>
-                            <option value="Concord">Concord</option>
-                            <option value="Eastwood">Eastwood</option>
-                            <option value="Homebush Bay">Homebush Bay</option>
-                            <option value="Kellyville">Kellyville</option>
-                            <option value="Kogarah">Kogarah</option>
-                            <option value="Rhodes">Rhodes</option>
-                            <option value="Strathfield">Strathfield</option>
-                            <option value="Willoughby">Willoughby</option>
-                            <option value="Other">Other/Visiting</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <h3>👨‍👩‍👧‍👦 Parent/Guardian Information</h3>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="parentName">Parent/Guardian Name <span class="required">*</span></label>
-                        <input type="text" id="parentName" name="parentName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="parentEmail">Email Address <span class="required">*</span></label>
-                        <input type="email" id="parentEmail" name="parentEmail" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="parentPhone">Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="parentPhone" name="parentPhone" required placeholder="e.g., 0400 123 456">
-                    </div>
-                    <div class="form-group">
-                        <label for="emergencyContact">Emergency Contact (if different)</label>
-                        <input type="text" id="emergencyContact" name="emergencyContact" placeholder="Name & phone number">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <h3>⚕️ Health & Safety</h3>
-                
-                <div class="form-group">
-                    <label for="medicalConditions">Medical Conditions / Allergies</label>
-                    <input type="text" id="medicalConditions" name="medicalConditions" placeholder="e.g., Asthma, peanut allergy, or 'None'">
-                </div>
-
-                <div class="form-group">
-                    <label for="medications">Regular Medications</label>
-                    <input type="text" id="medications" name="medications" placeholder="Include any medications child needs access to, or 'None'">
-                </div>
-            </div>
-
-            <button type="submit" class="submit-btn" id="submitBtn">
-                Register for Kids Tournament
-            </button>
-
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                <span>Submitting registration...</span>
-            </div>
-
-            <div class="message" id="message"></div>
-        </form>
+        <div class="form-note">
+            <h4>⚽ Registration Complete!</h4>
+            <p>Your child's registration has been submitted! Teams will be randomly assigned closer to the tournament date to ensure balanced, fun games. We'll contact you with team details and important safety information.</p>
+        </div>
     </div>
-
-    <script>
-        // Handle form submission
-        const form = document.getElementById('registrationForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const loading = document.getElementById('loading');
-        const message = document.getElementById('message');
-
-        // Replace with your Google Apps Script URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx8jVAx01KBlS6KrCq9eK-IWUXfsm8vw4MeTBpeaWZ42FsMmpj5iKOvugRAiSUmrAmyaw/exec';
-
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            // Show loading state
-            submitBtn.disabled = true;
-            loading.style.display = 'flex';
-            message.style.display = 'none';
-
-            try {
-                const formData = new FormData(form);
-                const data = Object.fromEntries(formData.entries());
-                
-                // Add tournament type and timestamp
-                data.tournament = 'kids';
-                data.timestamp = new Date().toISOString();
-
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                // Since we're using no-cors mode, we can't read the response
-                // Assume success if no error was thrown
-                showMessage('Registration submitted successfully! ⚽ We\'ll be in touch closer to the tournament date with team assignments and details.', 'success');
-                form.reset();
-
-            } catch (error) {
-                console.error('Error:', error);
-                showMessage('Registration failed. Please try again or contact the organizer.', 'error');
-            } finally {
-                submitBtn.disabled = false;
-                loading.style.display = 'none';
-            }
-        });
-
-        function showMessage(text, type) {
-            message.textContent = text;
-            message.className = `message ${type}`;
-            message.style.display = 'block';
-        }
-    </script>
 </body>
 </html>
