@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adults Soccer Tournament Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #BCBDC0 0%, #DB3328 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .tournament-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #DB3328;
+        }
+
+        .tournament-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tournament-info ul {
+            color: #666;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .tournament-info li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tournament-info li:before {
+            content: "⚽";
+            position: absolute;
+            left: 0;
+        }
+
+        .navigation-links {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .nav-link {
+            color: #DB3328;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #DB3328;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .nav-link:hover {
+            background: #DB3328;
+            color: white;
+        }
+
+        .form-container {
+            margin-bottom: 20px;
+        }
+
+        .airtable-embed {
+            width: 100%;
+            height: 800px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: transparent;
+        }
+
+        .form-note {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form-note h4 {
+            color: #1976d2;
+            margin-bottom: 8px;
+        }
+
+        .form-note p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .nav-link {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .airtable-embed {
+                height: 900px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" alt="Tournament Logo" class="logo">
+            <h1>⚽ Adults Tournament</h1>
+            <p>Player Registration</p>
+        </div>
+
+        <div class="navigation-links">
+            <p style="margin-bottom: 15px; color: #666;">Looking for other registration forms?</p>
+            <a href="https://shinesoccer.com/kids-registration" class="nav-link">Kids Tournament</a>
+            <a href="https://shinesoccer.com/volunteers" class="nav-link">Volunteers</a>
+            <a href="https://shinesoccer.com/stall-holders" class="nav-link">Stall Holders</a>
+	        <a href="https://shinesoccer.com/event-hub" class="nav-link">Event Hub</a>
+        </div>
+
+        <div class="tournament-info">
+            <h3>Adults Tournament Rules</h3>
+            <ul>
+                <li><strong>Team Size:</strong> 7 core players + up to 13 substitutes per congregation</li>
+                <li><strong>Gender Requirement:</strong> Minimum 1 female player in core team (starting 7)</li>
+                <li><strong>Time:</strong> 1:30 PM - 5:00 PM</li>
+                <li><strong>Format:</strong> Knockout tournament by congregation</li>
+            </ul>
+        </div>
+
+        <div class="form-container">
+            <iframe 
+                class="airtable-embed" 
+                src="https://airtable.com/embed/appRcV9AEo4BHVbaO/pagbxvqmKSoeYOxMm/form" 
+                frameborder="0" 
+                onmousewheel="" 
+                width="100%" 
+                height="800">
+            </iframe>
+        </div>
+
+        <div class="form-note">
+            <h4>✅ Extra Info</h4>
+            <p>T.B.A. (Check back later to see your teams!)</p>
+        </div>
+    </div>
+</body>
+</html>
