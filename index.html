@@ -3,7 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adults Soccer Tournament Registration</title>
+    <title>SHINE 2025 | 8 Congregations, One Mission | Soccer Slam for Missions</title>
+    <meta name="description" content="Join SHINE 2025 on August 10th - 8 Cornerstone congregations uniting for soccer, fellowship, and supporting global mission partners. Register now!">
+    <meta name="keywords" content="SHINE 2025, Soccer Slam, Cornerstone Church, Missions, Sydney, Soccer Tournament, Community Event">
+    <meta name="author" content="Cornerstone Church">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shinesoccer.com/">
+    <meta property="og:title" content="SHINE 2025 | 8 Congregations, One Mission">
+    <meta property="og:description" content="Join us August 10th for soccer, fellowship, and supporting global missions. Register for the tournament now!">
+    <meta property="og:image" content="http://paulgray.co/wp-content/uploads/2025/07/c32bc988-3dd5-4edb-bbce-eb54fd390b3d.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://shinesoccer.com/">
+    <meta property="twitter:title" content="SHINE 2025 | 8 Congregations, One Mission">
+    <meta property="twitter:description" content="Join us August 10th for soccer, fellowship, and supporting global missions. Register for the tournament now!">
+    <meta property="twitter:image" content="http://paulgray.co/wp-content/uploads/2025/07/c32bc988-3dd5-4edb-bbce-eb54fd390b3d.jpg">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
+    <link rel="preload" href="http://paulgray.co/wp-content/uploads/2025/07/Shine-Logo-Official-Trans.png" as="image">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "SHINE 2025 Soccer Slam",
+        "description": "8 Cornerstone congregations uniting for soccer and missions",
+        "startDate": "2025-08-10T13:30:00+10:00",
+        "endDate": "2025-08-10T17:00:00+10:00",
+        "location": {
+            "@type": "Place",
+            "name": "Powells Creek Reserve",
+            "address": "Homebush, NSW, Australia"
+        },
+        "organizer": {
+            "@type": "Organization",
+            "name": "Cornerstone Church"
+        }
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -11,203 +56,826 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-red: #DB3328;
+            --primary-grey: #BCBDC0;
+            --bg-primary: #f0f0f3;
+            --bg-secondary: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --text-light: #a0aec0;
+            --shadow-light: #ffffff;
+            --shadow-dark: #d1d9e6;
+            --accent-blue: #3182ce;
+            --accent-green: #38a169;
+            --bg-gradient: linear-gradient(135deg, #f0f0f3 0%, #e8e8eb 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #BCBDC0 0%, #DB3328 100%);
-            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(240, 240, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
+            justify-content: space-between;
+            height: 70px;
         }
 
-        .container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            padding: 40px;
-            max-width: 700px;
-            width: 100%;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .logo {
-            max-width: 200px;
-            height: auto;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            height: 40px;
+            width: auto;
         }
 
-        .header h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-red);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-red), #e53e3e);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 
+                4px 4px 8px rgba(219, 51, 40, 0.3),
+                -4px -4px 8px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                6px 6px 12px rgba(219, 51, 40, 0.4),
+                -6px -6px 12px rgba(255, 255, 255, 0.9);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+            animation: fadeInScale 1s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-grey));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        .header p {
-            color: #666;
-            font-size: 1.1em;
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-weight: 500;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
-        .tournament-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border-left: 4px solid #DB3328;
+        .hero-date {
+            display: inline-block;
+            background: var(--bg-primary);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-red);
+            margin-bottom: 40px;
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
-        .tournament-info h3 {
-            color: #333;
-            margin-bottom: 10px;
+        .hero-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.8s both;
         }
 
-        .tournament-info ul {
-            color: #666;
-            list-style-type: none;
-            padding-left: 0;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .tournament-info li {
-            margin-bottom: 5px;
-            padding-left: 20px;
+        /* Mission Section */
+        .mission-section {
+            padding: 100px 20px;
+            background: var(--bg-secondary);
             position: relative;
         }
 
-        .tournament-info li:before {
-            content: "⚽";
-            position: absolute;
-            left: 0;
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .navigation-links {
+        .section-header {
             text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
+            margin-bottom: 60px;
         }
 
-        .nav-link {
-            color: #DB3328;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px 20px;
-            border: 2px solid #DB3328;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin: 5px;
-        }
-
-        .nav-link:hover {
-            background: #DB3328;
-            color: white;
-        }
-
-        .form-container {
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-primary);
             margin-bottom: 20px;
         }
 
-        .airtable-embed {
-            width: 100%;
-            height: 800px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background: transparent;
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .form-note {
-            background: #e3f2fd;
-            border: 1px solid #2196f3;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .mission-text {
+            space-y: 25px;
+        }
+
+        .mission-text h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .mission-text p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .mission-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: var(--bg-primary);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .mission-map {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                10px 10px 20px var(--shadow-dark),
+                -10px -10px 20px var(--shadow-light);
+        }
+
+        .mission-map img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Giving Section */
+        .giving-section {
+            padding: 100px 20px;
+            background: var(--bg-gradient);
+        }
+
+        .giving-container {
+            max-width: 1000px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .form-note h4 {
-            color: #1976d2;
-            margin-bottom: 8px;
+        .giving-content {
+            background: var(--bg-secondary);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 
+                15px 15px 30px var(--shadow-dark),
+                -15px -15px 30px var(--shadow-light);
         }
 
-        .form-note p {
-            color: #666;
-            font-size: 0.9em;
+        .giving-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
+        .giving-card {
+            background: var(--bg-primary);
+            padding: 30px 25px;
+            border-radius: 20px;
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .giving-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                12px 12px 24px var(--shadow-dark),
+                -12px -12px 24px var(--shadow-light);
+        }
+
+        .giving-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        .giving-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .giving-button {
+            background: linear-gradient(135deg, var(--accent-green), #48bb78);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 
+                4px 4px 8px rgba(56, 161, 105, 0.3),
+                -4px -4px 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .giving-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                6px 6px 12px rgba(56, 161, 105, 0.4),
+                -6px -6px 12px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Event Section */
+        .event-section {
+            padding: 100px 20px;
+            background: var(--bg-secondary);
+        }
+
+        .event-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .event-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                15px 15px 30px var(--shadow-dark),
+                -15px -15px 30px var(--shadow-light);
+        }
+
+        .event-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .event-details {
+            space-y: 30px;
+        }
+
+        .event-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .event-link {
+            background: var(--bg-primary);
+            padding: 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .event-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .event-link.primary {
+            background: linear-gradient(135deg, var(--primary-red), #e53e3e);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: var(--bg-secondary);
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a5568;
+            padding-top: 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
             }
 
-            .nav-link {
+            .mobile-menu-toggle {
                 display: block;
-                margin: 10px 0;
             }
 
-            .airtable-embed {
-                height: 900px;
+            .hero {
+                padding: 60px 20px 80px;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .mission-content,
+            .event-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .giving-content {
+                padding: 30px 20px;
+            }
+
+            .event-links {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .hero,
+            .mission-section,
+            .giving-section,
+            .event-section {
+                padding: 60px 15px;
+            }
+
+            .mission-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for keyboard navigation */
+        a:focus,
+        button:focus {
+            outline: 2px solid var(--primary-red);
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --shadow-dark: #000000;
+                --shadow-light: #ffffff;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" alt="Tournament Logo" class="logo">
-            <h1>⚽ Adults Tournament</h1>
-            <p>Player Registration</p>
-        </div>
-
-        <div class="navigation-links">
-            <p style="margin-bottom: 15px; color: #666;">Looking for other registration forms?</p>
-            <a href="https://shinesoccer.com/kids-registration" class="nav-link">Kids Tournament</a>
-            <a href="https://shinesoccer.com/volunteers" class="nav-link">Volunteers</a>
-            <a href="https://shinesoccer.com/stall-holders" class="nav-link">Stall Holders</a>
-	        <a href="https://shinesoccer.com/event-hub" class="nav-link">Event Hub</a>
-        </div>
-
-        <div class="tournament-info">
-            <h3>Adults Tournament Rules</h3>
-            <ul>
-                <li><strong>Team Size:</strong> 7 core players + up to 13 substitutes per congregation</li>
-                <li><strong>Gender Requirement:</strong> Minimum 1 female player in core team (starting 7)</li>
-                <li><strong>Time:</strong> 1:30 PM - 5:00 PM</li>
-                <li><strong>Format:</strong> Knockout tournament by congregation</li>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-section">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" alt="Cornerstone Church" class="logo">
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#event">Event</a></li>
+                <li><a href="#giving">Giving</a></li>
+                <li><a href="/links">All Links</a></li>
             </ul>
-        </div>
+            
+            <a href="#register" class="cta-button">Register Now</a>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        </nav>
+    </header>
 
-        <div class="form-container">
-            <iframe 
-                class="airtable-embed" 
-                src="https://airtable.com/embed/appRcV9AEo4BHVbaO/pagbxvqmKSoeYOxMm/form" 
-                frameborder="0" 
-                onmousewheel="" 
-                width="100%" 
-                height="800">
-            </iframe>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <img src="http://paulgray.co/wp-content/uploads/2025/07/Shine-Logo-Official-Trans.png" alt="SHINE 2025 Logo" class="hero-logo">
+            
+            <h1 class="hero-title">8 Congregations, One Mission</h1>
+            
+            <p class="hero-subtitle">Join us for soccer, fellowship, and supporting global mission partners</p>
+            
+            <div class="hero-date">📅 Sunday, August 10th • 1:30 PM • Powells Creek Reserve</div>
+            
+            <div class="hero-cta-group">
+                <a href="/adults" class="cta-button">🏃‍♂️ Register Adults</a>
+                <a href="/kids-registration" class="cta-button">👶 Register Kids</a>
+                <a href="/volunteers" class="cta-button">🙋‍♀️ Volunteer</a>
+            </div>
         </div>
+    </section>
 
-        <div class="form-note">
-            <h4>✅ Extra Info</h4>
-            <p>T.B.A. (Check back later to see your teams!)</p>
+    <!-- Mission Section -->
+    <section id="mission" class="mission-section">
+        <div class="mission-container">
+            <div class="section-header">
+                <h2 class="section-title">Our Global Mission</h2>
+                <p class="section-subtitle">Every dollar raised supports missionaries and projects spreading the Gospel worldwide</p>
+            </div>
+            
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h3>Supporting God's Work Globally</h3>
+                    <p>SHINE isn't just about soccer - it's about shining Christ's light to the nations. Through this event, we raise awareness and funds for our mission partners who are faithfully serving God around the world.</p>
+                    
+                    <p>Our mission giving supports church planting, evangelism, theological education, and community development in partnership with local churches and missionaries.</p>
+                    
+                    <div class="mission-stats">
+                        <div class="stat-card">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Mission Partners</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Countries</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Congregations</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mission-map">
+                    <img src="http://paulgray.co/wp-content/uploads/2025/07/Mission-Partners-MAP_pr_final_6_7-2024_page-0001.jpg" alt="Global Mission Partners Map" loading="lazy">
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Giving Section -->
+    <section id="giving" class="giving-section">
+        <div class="giving-container">
+            <div class="giving-content">
+                <h2 class="section-title">Partner With Us in Mission</h2>
+                <p class="section-subtitle">Your generous giving helps support missionaries, church planting, and Gospel work around the world. You can give at any time - not just at SHINE!</p>
+                
+                <div class="giving-options">
+                    <div class="giving-card">
+                        <h4>General Mission</h4>
+                        <p>Support our overall mission efforts and let church leadership direct funds where needed most.</p>
+                        <a href="mailto:accounts@cornerstonechurch.com.au?subject=Mission Giving" class="giving-button">Give to Missions</a>
+                    </div>
+                    
+                    <div class="giving-card">
+                        <h4>Specific Missionary</h4>
+                        <p>Direct your giving to support a specific missionary family or mission project.</p>
+                        <a href="mailto:accounts@cornerstonechurch.com.au?subject=Specific Mission Giving" class="giving-button">Choose Missionary</a>
+                    </div>
+                    
+                    <div class="giving-card">
+                        <h4>SHINE Event Fund</h4>
+                        <p>Support this year's SHINE event and help us raise even more for missions.</p>
+                        <a href="#" class="giving-button">Coming Soon</a>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; padding: 20px; background: var(--bg-primary); border-radius: 15px;">
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                        <strong>Mission Giving Account:</strong> BSB 012287 | Account 380261578<br>
+                        <strong>PayID:</strong> accounts@cornerstonechurch.com.au<br>
+                        <em>Please label with your congregation code (CON, EAS, HBB, KEL, KOG, RHO, STR, WIL)</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Section -->
+    <section id="event" class="event-section">
+        <div class="event-container">
+            <div class="section-header">
+                <h2 class="section-title">The SHINE Event</h2>
+                <p class="section-subtitle">A day of soccer, food, fellowship, and mission awareness</p>
+            </div>
+            
+            <div class="event-grid">
+                <div class="event-image">
+                    <img src="http://paulgray.co/wp-content/uploads/2025/07/c32bc988-3dd5-4edb-bbce-eb54fd390b3d.jpg" alt="SHINE Soccer Event in Action" loading="lazy">
+                </div>
+                
+                <div class="event-details">
+                    <h3>What to Expect</h3>
+                    <p>Join us for an incredible day where all 8 Cornerstone congregations come together for:</p>
+                    
+                    <ul style="list-style: none; padding: 0; margin: 20px 0;">
+                        <li style="margin: 10px 0; color: var(--text-secondary);">⚽ Adult 7-a-side soccer tournament</li>
+                        <li style="margin: 10px 0; color: var(--text-secondary);">👶 Kids soccer tournament (ages 4-17)</li>
+                        <li style="margin: 10px 0; color: var(--text-secondary);">🍕 Food stalls from each congregation</li>
+                        <li style="margin: 10px 0; color: var(--text-secondary);">🌍 Mission awareness displays</li>
+                        <li style="margin: 10px 0; color: var(--text-secondary);">🤝 Fellowship across congregations</li>
+                    </ul>
+                    
+                    <div class="event-links" id="register">
+                        <a href="/adults" class="event-link primary">Register Adults Team</a>
+                        <a href="/kids-registration" class="event-link">Register Kids</a>
+                        <a href="/volunteers" class="event-link">Volunteer</a>
+                        <a href="/event-hub" class="event-link">Event Hub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="/adults">Adult Registration</a>
+                <a href="/kids-registration">Kids Registration</a>
+                <a href="/volunteers">Volunteers</a>
+                <a href="/event-hub">Event Hub</a>
+                <a href="/links">All Links</a>
+                <a href="https://www.cornerstonechurch.com.au">Cornerstone Church</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SHINE Soccer Slam. A Cornerstone Church Event.</p>
+                <p style="margin-top: 10px;">Powells Creek Reserve, Homebush • August 10, 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate elements on scroll
+        document.querySelectorAll('.mission-text, .giving-card, .event-details').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(element);
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Performance optimization: Lazy load images
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.src; // Trigger loading
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // Add loading states for external links
+        document.querySelectorAll('a[href^="http"], a[href^="mailto"]').forEach(link => {
+            link.addEventListener('click', function() {
+                this.style.opacity = '0.7';
+                setTimeout(() => {
+                    this.style.opacity = '1';
+                }, 1000);
+            });
+        });
+
+        // Analytics tracking (placeholder)
+        function trackEvent(eventName, properties = {}) {
+            console.log('Event tracked:', eventName, properties);
+            // Replace with your analytics code (Google Analytics, etc.)
+        }
+
+        // Track key interactions
+        document.querySelectorAll('.cta-button, .giving-button, .event-link').forEach(button => {
+            button.addEventListener('click', function() {
+                trackEvent('button_click', {
+                    button_text: this.textContent.trim(),
+                    button_type: this.className,
+                    page_section: this.closest('section')?.id || 'unknown'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
