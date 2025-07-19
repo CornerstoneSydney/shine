@@ -3,7 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stall Holders Registration</title>
+    <title>Stall Holders Registration | SHINE 2025</title>
+    <meta name="description" content="Stall Holder registration for SHINE 2025 Soccer Slam. Food stalls from each congregation. Guidelines, setup requirements, and registration information.">
+    <meta name="keywords" content="SHINE 2025, Stall Holders Registration, Food Stalls, Cornerstone Church, Community Event">
+    <meta name="author" content="Cornerstone Church">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shinesoccer.com/stall-holders">
+    <meta property="og:title" content="Stall Holders Registration | SHINE 2025">
+    <meta property="og:description" content="Stall Holder registration for SHINE 2025 Soccer Slam. Food stalls from each congregation with guidelines and requirements.">
+    <meta property="og:image" content="http://paulgray.co/wp-content/uploads/2025/07/c32bc988-3dd5-4edb-bbce-eb54fd390b3d.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://shinesoccer.com/stall-holders">
+    <meta property="twitter:title" content="Stall Holders Registration | SHINE 2025">
+    <meta property="twitter:description" content="Stall Holder registration for SHINE 2025 Soccer Slam. Food stalls from each congregation with guidelines and requirements.">
+    <meta property="twitter:image" content="http://paulgray.co/wp-content/uploads/2025/07/c32bc988-3dd5-4edb-bbce-eb54fd390b3d.jpg">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
+    <link rel="preload" href="http://paulgray.co/wp-content/uploads/2025/07/Shine-Logo-Official-Trans.png" as="image">
+    <link rel="preload" href="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" as="image">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "SHINE 2025 Stall Holders Registration",
+        "description": "Food stall registration for SHINE 2025 Soccer Slam community event",
+        "startDate": "2025-08-10T13:00:00+10:00",
+        "endDate": "2025-08-10T17:00:00+10:00",
+        "location": {
+            "@type": "Place",
+            "name": "Powells Creek Reserve",
+            "address": "Homebush, NSW, Australia"
+        },
+        "organizer": {
+            "@type": "Organization",
+            "name": "Cornerstone Church"
+        }
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -11,218 +57,1151 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-red: #DB3328;
+            --primary-grey: #BCBDC0;
+            --bg-primary: #f0f0f3;
+            --bg-secondary: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --text-light: #a0aec0;
+            --shadow-light: #ffffff;
+            --shadow-dark: #d1d9e6;
+            --accent-blue: #3182ce;
+            --accent-green: #38a169;
+            --accent-orange: #ed8936;
+            --accent-yellow: #d69e2e;
+            --bg-gradient: linear-gradient(135deg, #f0f0f3 0%, #e8e8eb 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #BCBDC0 0%, #DB3328 100%);
-            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(240, 240, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
+            justify-content: space-between;
+            height: 70px;
         }
 
-        .container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            padding: 40px;
-            max-width: 800px;
-            width: 100%;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .logo {
-            max-width: 200px;
-            height: auto;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            height: 40px;
+            width: auto;
+            object-fit: contain;
         }
 
-        .header h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, #DB3328, #BCBDC0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header p {
-            color: #666;
-            font-size: 1.1em;
-        }
-
-        .navigation-menu {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-
-        .nav-links {
+        .nav-menu {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
         }
 
-        .nav-link {
-            color: #DB3328;
+        .nav-menu a {
             text-decoration: none;
-            font-weight: 600;
-            padding: 8px 16px;
-            border: 2px solid #DB3328;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-size: 0.9em;
-        }
-
-        .nav-link:hover {
-            background: #DB3328;
-            color: white;
-        }
-
-        .nav-link.current {
-            background: #DB3328;
-            color: white;
-        }
-
-        .tournament-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border-left: 4px solid #DB3328;
-        }
-
-        .tournament-info h3 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .tournament-info ul {
-            color: #666;
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .tournament-info li {
-            margin-bottom: 5px;
-            padding-left: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
             position: relative;
         }
 
-        .tournament-info li:before {
-            content: "🍕";
-            position: absolute;
-            left: 0;
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-red);
         }
 
-        .form-container {
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-red);
+            border-radius: 1px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-red), #e53e3e);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 
+                4px 4px 8px rgba(219, 51, 40, 0.3),
+                -4px -4px 8px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                6px 6px 12px rgba(219, 51, 40, 0.4),
+                -6px -6px 12px rgba(255, 255, 255, 0.9);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        .mobile-nav-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(240, 240, 243, 0.98);
+            backdrop-filter: blur(15px);
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav-menu.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mobile-nav-menu a {
+            display: block;
+            padding: 15px 0;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-menu a:hover,
+        .mobile-nav-menu a.active {
+            color: var(--primary-red);
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 30px;
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            box-shadow: 
+                15px 15px 30px var(--shadow-dark),
+                -15px -15px 30px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-orange), var(--accent-yellow));
+            border-radius: 30px 30px 0 0;
+        }
+
+        .shine-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+            animation: fadeInScale 1s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--accent-orange), var(--accent-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--text-secondary);
             margin-bottom: 20px;
+            font-weight: 500;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--bg-primary);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Notice Section */
+        .notice-section {
+            background: linear-gradient(135deg, #fff3e0, #ffcc80);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+            border-left: 6px solid var(--accent-orange);
+            margin-bottom: 50px;
+        }
+
+        .notice-section h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .notice-section p {
+            color: #bf360c;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Guidelines Section */
+        .guidelines-section {
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 50px;
+            box-shadow: 
+                12px 12px 24px var(--shadow-dark),
+                -12px -12px 24px var(--shadow-light);
+            border-left: 6px solid var(--accent-orange);
+        }
+
+        .guidelines-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .guideline-card {
+            background: var(--bg-primary);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 
+                inset 3px 3px 6px var(--shadow-dark),
+                inset -3px -3px 6px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .guideline-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                inset 4px 4px 8px var(--shadow-dark),
+                inset -4px -4px 8px var(--shadow-light),
+                0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .guideline-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+
+        .guideline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .guideline-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* Requirements Section */
+        .requirements-section {
+            background: var(--bg-primary);
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 50px;
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .requirements-title {
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .requirement-item {
+            background: var(--bg-secondary);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 
+                4px 4px 8px var(--shadow-dark),
+                -4px -4px 8px var(--shadow-light);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .requirement-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .requirement-content strong {
+            color: var(--accent-orange);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .requirement-content span {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Navigation Links Section */
+        .nav-links-section {
+            background: var(--bg-primary);
+            padding: 30px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+            text-align: center;
+        }
+
+        .nav-links-title {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .nav-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .nav-link-card {
+            background: var(--bg-secondary);
+            padding: 15px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            box-shadow: 
+                4px 4px 8px var(--shadow-dark),
+                -4px -4px 8px var(--shadow-light);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .nav-link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+            color: var(--accent-orange);
+        }
+
+        .nav-link-card.primary {
+            background: linear-gradient(135deg, var(--accent-orange), #f56500);
+            color: white;
+        }
+
+        .nav-link-card.primary:hover {
+            color: white;
+        }
+
+        /* WhatsApp Group Section */
+        .whatsapp-section {
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c8);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+            border-left: 6px solid #25d366;
+            margin-bottom: 40px;
+        }
+
+        .whatsapp-section h4 {
+            color: #1e8e3e;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .whatsapp-section p {
+            color: #2d5016;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .whatsapp-button {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 
+                4px 4px 8px rgba(37, 211, 102, 0.3),
+                -4px -4px 8px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                6px 6px 12px rgba(37, 211, 102, 0.4),
+                -6px -6px 12px rgba(255, 255, 255, 0.9);
+            color: white;
+        }
+
+        .whatsapp-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Registration Form */
+        .registration-section {
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 
+                15px 15px 30px var(--shadow-dark),
+                -15px -15px 30px var(--shadow-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            font-weight: 700;
         }
 
         .airtable-embed {
             width: 100%;
             height: 800px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background: transparent;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 
+                inset 8px 8px 16px rgba(209, 217, 230, 0.3),
+                inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+            background: var(--bg-primary);
+            overflow: hidden;
         }
 
+        /* Form Note */
         .form-note {
-            background: #f3e5f5;
-            border: 1px solid #9c27b0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
+            background: var(--bg-primary);
+            border-radius: 20px;
+            padding: 25px;
             text-align: center;
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+            border-left: 6px solid var(--accent-green);
         }
 
         .form-note h4 {
-            color: #7b1fa2;
-            margin-bottom: 8px;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 1.2rem;
         }
 
         .form-note p {
-            color: #666;
-            font-size: 0.9em;
+            color: var(--text-secondary);
+            font-size: 1rem;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: var(--bg-secondary);
+            padding: 40px 20px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a5568;
+            padding-top: 15px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
             }
-            
-            .header h1 {
-                font-size: 2em;
+
+            .mobile-menu-toggle {
+                display: block;
             }
-            
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
+
+            .main-container {
+                padding: 20px 15px;
+            }
+
+            .hero-section {
+                padding: 40px 20px;
+                margin-bottom: 40px;
+            }
+
+            .guidelines-section,
+            .registration-section,
+            .requirements-section {
+                padding: 25px 20px;
+            }
+
+            .guidelines-grid,
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links-grid {
+                grid-template-columns: 1fr;
             }
 
             .airtable-embed {
                 height: 900px;
             }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .hero-section,
+            .guidelines-section,
+            .registration-section,
+            .nav-links-section,
+            .requirements-section,
+            .whatsapp-section,
+            .notice-section {
+                padding: 20px 15px;
+            }
+
+            .logo {
+                height: 35px;
+            }
+
+            .shine-logo {
+                max-width: 150px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for keyboard navigation */
+        a:focus,
+        button:focus,
+        iframe:focus {
+            outline: 2px solid var(--accent-orange);
+            outline-offset: 2px;
+        }
+
+        .nav-menu a:focus {
+            outline: 2px solid var(--accent-orange);
+            outline-offset: 2px;
+            background: rgba(237, 137, 54, 0.1);
+            border-radius: 4px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --shadow-dark: #000000;
+                --shadow-light: #ffffff;
+            }
+        }
+
+        /* Loading states */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" alt="Tournament Logo" class="logo">
-            <h1>🍕 Stall Holders</h1>
-            <p>Registration</p>
-        </div>
-
-        <div class="navigation-menu">
-            <div class="nav-links">
-            <p style="margin-bottom: 15px; color: #666;"> <span>Looking for other registration forms?</span></p>
-            <a href="https://shinesoccer.com/" class="nav-link">Adults Tournament</a>
-            <a href="https://shinesoccer.com/kids-registration" class="nav-link">Kids Tournament</a>
-            <a href="https://shinesoccer.com/volunteers" class="nav-link">Volunteers</a>
-	        <a href="https://shinesoccer.com/event-hub" class="nav-link">Event Hub</a>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-section">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" alt="Cornerstone Church" class="logo">
             </div>
-        </div>
-
-        <div class="tournament-info">
-            <h3>Stall Holder Guidelines</h3>
-            <ul>
-                <li><strong>Payment System:</strong> Accept coupons as primary payment ($5, $10, $15 values)</li>
-                <li><strong>Equipment:</strong> Bring your own tables, marquee, and cooking equipment</li>
-                <li><strong>Power Restrictions:</strong> No external power available - LP gas only</li>
-                <li><strong>Setup Times:</strong> 1:00 PM setup, 5:00 PM pack down</li>
-                <li><strong>Food Safety:</strong> Follow all food handling guidelines and regulations</li>
-                <li><strong>Congregation Representation:</strong> Each congregation runs one stall</li>
+            
+            <ul class="nav-menu">
+                <li><a href="https://shinesoccer.com/">Home</a></li>
+                <li><a href="https://shinesoccer.com/adults">Adults</a></li>
+                <li><a href="https://shinesoccer.com/kids-registration">Kids</a></li>
+                <li><a href="https://shinesoccer.com/volunteers">Volunteers</a></li>
+                <li><a href="https://shinesoccer.com/event-hub">Event Hub</a></li>
             </ul>
+            
+            <a href="#register" class="cta-button">Register Stall</a>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        </nav>
+        
+        <div class="mobile-nav-menu" id="mobileNavMenu">
+            <a href="https://shinesoccer.com/">🏠 Home</a>
+            <a href="https://shinesoccer.com/adults">⚽ Adults Tournament</a>
+            <a href="https://shinesoccer.com/kids-registration">👶 Kids Tournament</a>
+            <a href="https://shinesoccer.com/volunteers">🙋‍♀️ Volunteers</a>
+            <a href="https://shinesoccer.com/event-hub">📋 Event Hub</a>
         </div>
+    </header>
 
-        <div class="form-container">
+    <div class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <img src="http://paulgray.co/wp-content/uploads/2025/07/Shine-Logo-Official-Trans.png" alt="SHINE 2025" class="shine-logo">
+            <h1 class="hero-title">Stall Holders</h1>
+            <p class="hero-subtitle">Food Stall Registration for SHINE 2025</p>
+            <div class="hero-badge">🍕 Bringing Communities Together Through Food!</div>
+        </section>
+
+        <!-- Notice Section -->
+        <section class="notice-section">
+            <h4>📢 Registration Status</h4>
+            <p>Spaces are still available for most congregations. Please contact your SHINE Rep before filling in the form below.</p>
+        </section>
+
+        <!-- Requirements Quick Reference -->
+        <section class="requirements-section">
+            <h3 class="requirements-title">Essential Requirements at a Glance</h3>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <div class="requirement-icon">💳</div>
+                    <div class="requirement-content">
+                        <strong>Payment System</strong>
+                        <span>Accept coupons ($5, $10, $15 values) as primary payment</span>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-icon">🏠</div>
+                    <div class="requirement-content">
+                        <strong>Equipment</strong>
+                        <span>Bring your own tables, marquee, and cooking equipment</span>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-icon">⚡</div>
+                    <div class="requirement-content">
+                        <strong>Power</strong>
+                        <span>No external power available - LP gas only</span>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-icon">⏰</div>
+                    <div class="requirement-content">
+                        <strong>Timing</strong>
+                        <span>Setup 1:00 PM, Service 1:30-4:00 PM, Pack down 4:10 PM</span>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-icon">🛡️</div>
+                    <div class="requirement-content">
+                        <strong>Food Safety</strong>
+                        <span>Follow all food handling guidelines and regulations</span>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-icon">🏛️</div>
+                    <div class="requirement-content">
+                        <strong>Representation</strong>
+                        <span>Each congregation operates one stall</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Guidelines -->
+        <section class="guidelines-section">
+            <h3>Detailed Stall Holder Guidelines</h3>
+            <div class="guidelines-grid">
+                <div class="guideline-card">
+                    <span class="guideline-icon">🎫</span>
+                    <div class="guideline-title">Coupon System</div>
+                    <div class="guideline-description">Primary payment method is coupons valued at $5, $10, and $15. Price your menu items to match these denominations.</div>
+                </div>
+                
+                <div class="guideline-card">
+                    <span class="guideline-icon">🍽️</span>
+                    <div class="guideline-title">Menu Planning</div>
+                    <div class="guideline-description">Plan menu items that can be priced at 1, 2, or 3 coupons. Consider preparation time, popularity, and cultural variety. Coordinate with other congregations to avoid duplication.</div>
+                </div>
+                
+                <div class="guideline-card">
+                    <span class="guideline-icon">🏕️</span>
+                    <div class="guideline-title">Setup & Equipment</div>
+                    <div class="guideline-description">Bring all necessary equipment including tables, marquee/gazebo, cooking equipment, serving utensils, and cleaning supplies. Setup begins at 1:00 PM sharp.</div>
+                </div>
+                
+                <div class="guideline-card">
+                    <span class="guideline-icon">🧼</span>
+                    <div class="guideline-title">Cleanliness Standards</div>
+                    <div class="guideline-description">Maintain high hygiene standards. Provide hand sanitizer, use gloves when handling food, and keep your stall area clean throughout the event. Clean up completely after 4:10 PM.</div>
+                </div>
+                
+                <div class="guideline-card">
+                    <span class="guideline-icon">📋</span>
+                    <div class="guideline-title">Food Safety Compliance</div>
+                    <div class="guideline-description">Ensure all food handlers understand basic food safety. Keep hot foods hot and cold foods cold. Properly label allergens and provide ingredient information if requested.</div>
+                </div>
+                
+                <div class="guideline-card">
+                    <span class="guideline-icon">🤝</span>
+                    <div class="guideline-title">Community Spirit</div>
+                    <div class="guideline-description">Your stall represents your congregation and contributes to the overall SHINE experience. Be welcoming, engage with visitors from all congregations, and embody the spirit of unity.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Links -->
+        <section class="nav-links-section">
+            <h3 class="nav-links-title">Looking for something else?</h3>
+            <div class="nav-links-grid">
+                <a href="https://shinesoccer.com/" class="nav-link-card">
+                    🏠 Home
+                </a>
+                <a href="https://shinesoccer.com/adults" class="nav-link-card">
+                    ⚽ Adults Registration
+                </a>
+                <a href="https://shinesoccer.com/kids-registration" class="nav-link-card">
+                    👶 Kids Registration
+                </a>
+                <a href="https://shinesoccer.com/volunteers" class="nav-link-card">
+                    🙋‍♀️ Volunteers
+                </a>
+                <a href="https://shinesoccer.com/event-hub" class="nav-link-card">
+                    📋 Event Hub
+                </a>
+            </div>
+        </section>
+
+        <!-- WhatsApp Group Section -->
+        <section class="whatsapp-section">
+            <h4>📱 Join the Stall Holders WhatsApp Group</h4>
+            <p>Connect with other stall holders, get updates, and coordinate setup details!</p>
+            <a href="https://chat.whatsapp.com/FF13Ix7b9RkKaEwdN50Mm6?mode=r_c" target="_blank" class="whatsapp-button">
+                <span class="whatsapp-icon">📱</span>
+                Join Stall Holders WhatsApp Group
+            </a>
+        </section>
+
+        <!-- Registration Form -->
+        <section class="registration-section" id="register">
+            <h2 class="section-title">Stall Holder Registration</h2>
             <iframe 
                 class="airtable-embed" 
                 src="https://airtable.com/embed/appRcV9AEo4BHVbaO/pagXE9jzNf90Ymbq3/form" 
                 frameborder="0" 
                 onmousewheel="" 
                 width="100%" 
-                height="800">
+                height="800"
+                title="Stall Holder Registration Form"
+                loading="lazy">
             </iframe>
-        </div>
+        </section>
 
-        <div class="form-note">
-            <h4>🍕 Extra Info!</h4>
+        <!-- Form Note -->
+        <section class="form-note">
+            <h4>🍕 Thank You for Your Service!</h4>
             <p>You'll be added to the Stall Holders WhatsApp group and receive detailed setup instructions, coupon collection information, and final requirements closer to the event. Thank you for bringing delicious food to our tournament!</p>
-        </div>
+        </section>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="https://shinesoccer.com/">Home</a>
+                <a href="https://shinesoccer.com/adults">Adult Registration</a>
+                <a href="https://shinesoccer.com/kids-registration">Kids Registration</a>
+                <a href="https://shinesoccer.com/volunteers">Volunteers</a>
+                <a href="https://shinesoccer.com/event-hub">Event Hub</a>
+                <a href="https://www.cornerstonechurch.com.au">Cornerstone Church</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SHINE Soccer Slam. A Cornerstone Church Event.</p>
+                <p style="margin-top: 10px;">Powells Creek Reserve, Homebush • August 10, 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileNavMenu = document.getElementById('mobileNavMenu');
+        
+        if (mobileToggle && mobileNavMenu) {
+            mobileToggle.addEventListener('click', () => {
+                mobileNavMenu.classList.toggle('show');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileToggle.contains(e.target) && !mobileNavMenu.contains(e.target)) {
+                    mobileNavMenu.classList.remove('show');
+                }
+            });
+
+            // Close mobile menu when clicking on a link
+            mobileNavMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNavMenu.classList.remove('show');
+                });
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate sections on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.guidelines-section, .registration-section, .nav-links-section, .form-note, .requirements-section, .whatsapp-section, .notice-section');
+            
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s`;
+                observer.observe(section);
+            });
+        });
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileNavMenu.classList.contains('show')) {
+                mobileNavMenu.classList.remove('show');
+            }
+        });
+
+        // Track form interactions for analytics
+        const iframe = document.querySelector('.airtable-embed');
+        iframe.addEventListener('load', function() {
+            console.log('Stall holder registration form loaded successfully');
+            // Analytics tracking can be added here
+        });
+
+        // Enhance accessibility
+        document.body.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+
+        document.body.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-nav');
+        });
+
+        // Loading states for navigation
+        document.querySelectorAll('.nav-link-card, .cta-button, .whatsapp-button').forEach(link => {
+            link.addEventListener('click', function() {
+                if (!this.getAttribute('href').startsWith('#')) {
+                    this.classList.add('loading');
+                    setTimeout(() => {
+                        this.classList.remove('loading');
+                    }, 2000);
+                }
+            });
+        });
+
+        // Add fun interactions for guideline cards
+        document.querySelectorAll('.guideline-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.guideline-icon');
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+                icon.style.transition = 'transform 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.guideline-icon');
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Add interactions for requirement items
+        document.querySelectorAll('.requirement-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light)';
+            });
+        });
+
+        // Analytics tracking (placeholder)
+        function trackEvent(eventName, properties = {}) {
+            console.log('Event tracked:', eventName, properties);
+            // Replace with your analytics code
+        }
+
+        // Track key interactions
+        document.querySelectorAll('.cta-button, .nav-link-card, .whatsapp-button').forEach(button => {
+            button.addEventListener('click', function() {
+                trackEvent('button_click', {
+                    button_text: this.textContent.trim(),
+                    button_type: this.className,
+                    page: 'stall_holders_registration'
+                });
+            });
+        });
+
+        // Preload critical resources
+        const preloadImages = [
+            'http://paulgray.co/wp-content/uploads/2025/07/Shine-Logo-Official-Trans.png',
+            'http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png'
+        ];
+
+        preloadImages.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
+        });
+    </script>
+
+    <!-- Add CSS for keyboard navigation and enhanced effects -->
+    <style>
+        .keyboard-nav .nav-menu a:focus,
+        .keyboard-nav .cta-button:focus,
+        .keyboard-nav .nav-link-card:focus,
+        .keyboard-nav .mobile-menu-toggle:focus {
+            outline: 2px solid var(--accent-orange);
+            outline-offset: 2px;
+        }
+
+        .keyboard-nav .whatsapp-button:focus {
+            outline: 2px solid #25d366;
+            outline-offset: 2px;
+        }
+
+        /* Enhanced hover effects */
+        .requirement-item {
+            transition: all 0.3s ease;
+        }
+
+        /* Loading animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .loading {
+            animation: pulse 1s infinite;
+        }
+
+        /* Fun animations for food theme */
+        .hero-badge {
+            animation: fadeInUp 1s ease-out 0.6s both, float 4s ease-in-out 2s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Food-specific color accents for cards */
+        .guideline-card:nth-child(1) { border-left: 4px solid #ed8936; }
+        .guideline-card:nth-child(2) { border-left: 4px solid #d69e2e; }
+        .guideline-card:nth-child(3) { border-left: 4px solid #38a169; }
+        .guideline-card:nth-child(4) { border-left: 4px solid #3182ce; }
+        .guideline-card:nth-child(5) { border-left: 4px solid #e53e3e; }
+        .guideline-card:nth-child(6) { border-left: 4px solid #9f7aea; }
+    </style>
 </body>
 </html>
