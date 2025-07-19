@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Slam 2025 - Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #DB3328;
+            --primary-grey: #BCBDC0;
+            --bg-primary: #f0f0f3;
+            --bg-secondary: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --shadow-light: #ffffff;
+            --shadow-dark: #d1d9e6;
+            --shadow-inset-light: #ffffff;
+            --shadow-inset-dark: #d1d9e6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #e8e8eb 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            padding: 20px 10px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: var(--bg-primary);
+            border-radius: 25px;
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-grey));
+            border-radius: 25px 25px 0 0;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-grey));
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 
+                inset 4px 4px 8px rgba(219, 51, 40, 0.3),
+                inset -4px -4px 8px rgba(255, 255, 255, 0.8),
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-grey));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .event-date {
+            display: inline-block;
+            background: var(--bg-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-red);
+            box-shadow: 
+                inset 2px 2px 4px var(--shadow-inset-dark),
+                inset -2px -2px 4px var(--shadow-inset-light);
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .link-group {
+            margin-bottom: 20px;
+        }
+
+        .group-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            background: var(--bg-primary);
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .link-btn:active {
+            transform: translateY(0);
+            box-shadow: 
+                inset 4px 4px 8px var(--shadow-inset-dark),
+                inset -4px -4px 8px var(--shadow-inset-light);
+        }
+
+        .link-btn.primary {
+            background: linear-gradient(135deg, var(--primary-red), #e53e3e);
+            color: white;
+            box-shadow: 
+                6px 6px 12px rgba(219, 51, 40, 0.3),
+                -6px -6px 12px rgba(255, 255, 255, 0.8);
+        }
+
+        .link-btn.primary .link-desc {
+            color: rgba(255, 255, 255, 0.9);
+            opacity: 1;
+        }
+
+        .link-btn.primary:hover {
+            box-shadow: 
+                8px 8px 16px rgba(219, 51, 40, 0.4),
+                -8px -8px 16px rgba(255, 255, 255, 0.9);
+        }
+
+        .link-btn.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .link-btn.disabled:hover {
+            transform: none;
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+        }
+
+        .link-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .link-icon {
+            font-size: 1.2rem;
+            width: 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .link-text {
+            flex: 1;
+        }
+
+        .link-title {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .link-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        .link-arrow {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            transition: transform 0.3s ease;
+        }
+
+        .link-btn:hover .link-arrow {
+            transform: translateX(4px);
+        }
+
+        .coming-soon {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.85rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            background: var(--bg-primary);
+            border-radius: 20px;
+            box-shadow: 
+                inset 4px 4px 8px var(--shadow-inset-dark),
+                inset -4px -4px 8px var(--shadow-inset-light);
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            
+            .profile-section {
+                padding: 25px 15px;
+            }
+            
+            .link-btn {
+                padding: 16px 20px;
+            }
+        }
+
+        .click-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-primary);
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            box-shadow: 
+                4px 4px 8px var(--shadow-dark),
+                -4px -4px 8px var(--shadow-light);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .click-counter.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="click-counter" id="clickCounter">
+        Clicks today: <span id="clickCount">0</span>
+    </div>
+
+    <div class="container">
+        <div class="profile-section">
+            <div class="logo">⚽</div>
+            <h1 class="title">Soccer Slam 2025</h1>
+            <p class="subtitle">8 Congregations • One Amazing Day</p>
+            <div class="event-date">📅 Sunday, August 10th • 1:30 PM</div>
+        </div>
+
+        <div class="links-container">
+            <!-- Registration Links -->
+            <div class="link-group">
+                <div class="group-title">Registration</div>
+                
+                <a href="https://shinesoccer.com/" class="link-btn primary" data-link="adult-signup">
+                    <div class="link-content">
+                        <div class="link-icon">🏃‍♂️</div>
+                        <div class="link-text">
+                            <div class="link-title">Adult Tournament</div>
+                            <div class="link-desc">7-a-side teams by congregation</div>
+                        </div>
+                    </div>
+                    <div class="link-arrow">→</div>
+                </a>
+
+                <a href="https://shinesoccer.com/kids-registration" class="link-btn" data-link="kids-signup">
+                    <div class="link-content">
+                        <div class="link-icon">👶</div>
+                        <div class="link-text">
+                            <div class="link-title">Kids Tournament</div>
+                            <div class="link-desc">Ages 4-17, mixed teams</div>
+                        </div>
+                    </div>
+                    <div class="link-arrow">→</div>
+                </a>
+            </div>
+
+            <!-- Volunteer & Stalls -->
+            <div class="link-group">
+                <div class="group-title">Get Involved</div>
+                
+                <a href="https://shinesoccer.com/volunteers" class="link-btn" data-link="volunteers">
+                    <div class="link-content">
+                        <div class="link-icon">🙋‍♀️</div>
+                        <div class="link-text">
+                            <div class="link-title">Volunteers</div>
+                            <div class="link-desc">Help make the day amazing</div>
+                        </div>
+                    </div>
+                    <div class="link-arrow">→</div>
+                </a>
+            </div>
+
+            <!-- WhatsApp Groups -->
+            <div class="link-group">
+                <div class="group-title">WhatsApp Groups</div>
+                
+                <a href="https://chat.whatsapp.com/FF13Ix7b9RkKaEwdN50Mm6" class="link-btn" data-link="captains-chat">
+                    <div class="link-content">
+                        <div class="link-icon">⚽</div>
+                        <div class="link-text">
+                            <div class="link-title">Soccer Captains</div>
+                            <div class="link-desc">For team captains only</div>
+                        </div>
+                    </div>
+                    <div class="link-arrow">→</div>
+                </a>
+
+                <a href="https://chat.whatsapp.com/FF13Ix7b9RkKaEwdN50Mm6" class="link-btn" data-link="kids-chat">
+                    <div class="link-content">
+                        <div class="link-icon">🧒🏼</div>
+                        <div class="link-text">
+                            <div class="link-title">Kids Soccer</div>
+                            <div class="link-desc">Parents & kids coordination</div>
+                        </div>
+                    </div>
+                    <div class="link-arrow">→</div>
+                </a>
+
+                <a href="https://chat.whatsapp.com/FF13Ix7b9RkKaEwdN50Mm6" class="link-btn" data-link="stalls-chat">
+                    <div class="link-content">
+                        <div class="link-icon">🍽️</div>
+                        <div class="link-text">
+                            <div class="link-title">Stall Holders</div>
+                            <div class="link-desc">Food stall coordination</div>
+                        </div>
+                    </div>
+                    <div class="link-arrow">→</div>
+                </a>
+
+                <a href="https://chat.whatsapp.com/BdocQzKJhz8F12sLYqjvN6" class="link-btn" data-link="volunteers-chat">
+                    <div class="link-content">
+                        <div class="link-icon">🤝</div>
+                        <div class="link-text">
+                            <div class="link-title">Volunteers</div>
+                            <div class="link-desc">Volunteer coordination</div>
+                        </div>
+                    </div>
+                    <div class="link-arrow">→</div>
+                </a>
+            </div>
+
+            <!-- Resources -->
+            <div class="link-group">
+                <div class="group-title">Resources</div>
+                
+                <div class="link-btn disabled" data-link="coupons">
+                    <div class="link-content">
+                        <div class="link-icon">💰</div>
+                        <div class="link-text">
+                            <div class="link-title">Coupon Purchase</div>
+                            <div class="coming-soon">Coming soon</div>
+                        </div>
+                    </div>
+                    <div class="link-arrow">→</div>
+                </div>
+
+                <div class="link-btn disabled" data-link="payid">
+                    <div class="link-content">
+                        <div class="link-icon">💳</div>
+                        <div class="link-text">
+                            <div class="link-title">PayID Confirmation</div>
+                            <div class="coming-soon">Coming soon</div>
+                        </div>
+                    </div>
+                    <div class="link-arrow">→</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Powells Creek Reserve, Homebush<br>
+            Fostering fellowship across 8 congregations 🤝</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Click tracking
+            let clickCount = parseInt(localStorage.getItem('soccerSlam2025Clicks') || '0');
+            const clickCountElement = document.getElementById('clickCount');
+            const clickCounterElement = document.getElementById('clickCounter');
+            
+            clickCountElement.textContent = clickCount;
+            
+            // Show click counter briefly on load
+            setTimeout(() => {
+                clickCounterElement.classList.add('show');
+                setTimeout(() => {
+                    clickCounterElement.classList.remove('show');
+                }, 2000);
+            }, 1000);
+
+            // Add ripple effect to buttons
+            document.querySelectorAll('.link-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if (!this.classList.contains('disabled')) {
+                        // Track click
+                        clickCount++;
+                        localStorage.setItem('soccerSlam2025Clicks', clickCount.toString());
+                        clickCountElement.textContent = clickCount;
+                        
+                        // Show click counter
+                        clickCounterElement.classList.add('show');
+                        setTimeout(() => {
+                            clickCounterElement.classList.remove('show');
+                        }, 1500);
+
+                        // Create ripple effect
+                        const ripple = document.createElement('span');
+                        ripple.classList.add('ripple');
+                        
+                        const rect = this.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height);
+                        const x = e.clientX - rect.left - size / 2;
+                        const y = e.clientY - rect.top - size / 2;
+                        
+                        ripple.style.width = ripple.style.height = size + 'px';
+                        ripple.style.left = x + 'px';
+                        ripple.style.top = y + 'px';
+                        
+                        this.appendChild(ripple);
+                        
+                        setTimeout(() => {
+                            ripple.remove();
+                        }, 600);
+
+                        // Analytics simulation (you can replace with real analytics)
+                        const linkType = this.getAttribute('data-link');
+                        console.log(`Link clicked: ${linkType}`);
+                    }
+                });
+            });
+
+            // Prevent clicks on disabled buttons
+            document.querySelectorAll('.link-btn.disabled').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Visual feedback for disabled button
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+
+            // Add scroll animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Animate links on scroll
+            document.querySelectorAll('.link-btn').forEach((link, index) => {
+                link.style.opacity = '0';
+                link.style.transform = 'translateY(20px)';
+                link.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(link);
+            });
+
+            // Add hover sound effect simulation (visual feedback)
+            document.querySelectorAll('.link-btn:not(.disabled)').forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.filter = 'brightness(1.02)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.filter = '';
+                });
+            });
+
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-nav');
+                }
+            });
+
+            document.addEventListener('mousedown', function() {
+                document.body.classList.remove('keyboard-nav');
+            });
+        });
+
+        // Add CSS for keyboard navigation
+        const style = document.createElement('style');
+        style.textContent = `
+            .keyboard-nav .link-btn:focus {
+                outline: 2px solid var(--primary-red);
+                outline-offset: 2px;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
