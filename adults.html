@@ -103,13 +103,17 @@
 
         .logo {
             max-width: 80px;
+            max-height: 80px;
             height: auto;
+            width: auto;
+            object-fit: contain;
             filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
             animation: pulse 2s infinite;
         }
 
         .shine-logo {
             max-width: 120px;
+            max-height: 80px;
         }
 
         @keyframes pulse {
@@ -273,15 +277,16 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-menu {
-                display: none;
+                display: none !important;
             }
 
             .mobile-menu-toggle {
-                display: block;
+                display: block !important;
             }
 
             .nav-container {
                 padding: 0 15px;
+                position: relative;
             }
 
             .container {
@@ -299,11 +304,13 @@
             }
 
             .logo {
-                max-width: 70px;
+                max-width: 60px;
+                max-height: 60px;
             }
 
             .shine-logo {
-                max-width: 100px;
+                max-width: 90px;
+                max-height: 60px;
             }
             
             .main-header h1 {
@@ -335,6 +342,12 @@
                 padding: 0 10px;
             }
 
+            .nav-logo {
+                height: 30px;
+                max-height: 30px;
+                max-width: 100px;
+            }
+
             .main-header {
                 padding: 25px 15px;
             }
@@ -345,7 +358,8 @@
             }
 
             .logo, .shine-logo {
-                max-width: 80px;
+                max-width: 70px;
+                max-height: 70px;
             }
 
             .tournament-info,
@@ -559,15 +573,21 @@
         
         if (mobileToggle && mobileNavMenu) {
             mobileToggle.addEventListener('click', () => {
-                const isVisible = mobileNavMenu.style.display === 'flex';
-                mobileNavMenu.style.display = isVisible ? 'none' : 'flex';
+                mobileNavMenu.classList.toggle('show');
             });
 
             // Close mobile menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (!mobileToggle.contains(e.target) && !mobileNavMenu.contains(e.target)) {
-                    mobileNavMenu.style.display = 'none';
+                    mobileNavMenu.classList.remove('show');
                 }
+            });
+
+            // Close mobile menu when clicking on a link
+            mobileNavMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNavMenu.classList.remove('show');
+                });
             });
         }
 
