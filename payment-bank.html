@@ -394,7 +394,52 @@
             font-size: 0.8rem;
         }
 
-        /* Submit Button */
+        /* Auth Section */
+        .auth-section {
+            background: var(--bg-secondary);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 
+                15px 15px 30px var(--shadow-dark),
+                -15px -15px 30px var(--shadow-light);
+        }
+
+        .auth-button {
+            background: linear-gradient(135deg, #4285f4, #3367d6);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .auth-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                10px 10px 20px var(--shadow-dark),
+                -10px -10px 20px var(--shadow-light);
+        }
+
+        .auth-button:disabled {
+            background: var(--primary-grey);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .auth-button.success {
+            background: linear-gradient(135deg, var(--accent-green), #48bb78);
+        }
         .submit-button {
             width: 100%;
             background: linear-gradient(135deg, var(--primary-red), #e53e3e);
@@ -554,8 +599,19 @@
             </ol>
         </div>
 
+        <!-- Authorization Section -->
+        <div class="auth-section" id="authSection">
+            <h3 style="margin-bottom: 15px; color: var(--text-primary);">🔐 Connect to Google Drive</h3>
+            <p style="margin-bottom: 15px; color: var(--text-secondary);">To securely upload your payment confirmation, we need permission to save it to our Google Drive folder.</p>
+            <button id="authButton" class="auth-button">
+                <span>🔐</span>
+                <span>Authorize Google Drive Access</span>
+            </button>
+            <div id="authStatus" class="status-message"></div>
+        </div>
+
         <!-- Upload Section -->
-        <div class="upload-section">
+        <div class="upload-section" id="uploadSection" style="display: none;">
             <h3 style="margin-bottom: 20px; color: var(--text-primary);">Upload Payment Confirmation</h3>
             
             <div class="upload-area" id="uploadArea">
@@ -659,10 +715,15 @@
         const progressContainer = document.getElementById('progressContainer');
         const progressFill = document.getElementById('progressFill');
         const submitButton = document.getElementById('submitButton');
+        const authButton = document.getElementById('authButton');
+        const authStatus = document.getElementById('authStatus');
+        const authSection = document.getElementById('authSection');
+        const uploadSection = document.getElementById('uploadSection');
 
         let selectedFile = null;
         let isGoogleDriveReady = false;
         let accessToken = null;
+        let tokenClient = null;
 
         // Initialize Google APIs
         async function initializeGoogleAPI() {
@@ -676,37 +737,67 @@
                     discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
                 });
 
-                // Initialize OAuth
-                google.accounts.oauth2.initTokenClient({
+                // Initialize OAuth token client
+                tokenClient = google.accounts.oauth2.initTokenClient({
                     client_id: GOOGLE_CLIENT_ID,
                     scope: 'https://www.googleapis.com/auth/drive.file',
-                    callback: (tokenResponse) => {
-                        accessToken = tokenResponse.access_token;
-                        isGoogleDriveReady = true;
-                        showStatus('Ready to receive payment confirmations!', 'success');
-                    },
+                    callback: handleAuthCallback,
                 });
 
-                showStatus('Click anywhere to begin - system ready!', 'info');
+                authButton.disabled = false;
+                showAuthStatus('Ready! Click the button above to connect to Google Drive.', 'info');
+                
             } catch (error) {
                 console.error('API initialization error:', error);
-                showStatus('System initialization failed. Please refresh the page.', 'error');
+                showAuthStatus('System initialization failed. Please refresh the page.', 'error');
+                authButton.disabled = true;
             }
         }
 
-        // Request Google Drive permission when user first tries to upload
-        function requestGooglePermission() {
-            if (!isGoogleDriveReady) {
-                google.accounts.oauth2.initTokenClient({
-                    client_id: GOOGLE_CLIENT_ID,
-                    scope: 'https://www.googleapis.com/auth/drive.file',
-                    callback: (tokenResponse) => {
-                        accessToken = tokenResponse.access_token;
-                        isGoogleDriveReady = true;
-                        showStatus('Google Drive connected! You can now upload files.', 'success');
-                    },
-                }).requestAccessToken();
+        // Handle OAuth callback
+        function handleAuthCallback(tokenResponse) {
+            if (tokenResponse.error !== undefined) {
+                showAuthStatus('Authorization failed. Please try again.', 'error');
+                return;
             }
+            
+            accessToken = tokenResponse.access_token;
+            isGoogleDriveReady = true;
+            
+            // Update UI to show success
+            authButton.innerHTML = '<span>✅</span><span>Connected to Google Drive</span>';
+            authButton.classList.add('success');
+            authButton.disabled = true;
+            
+            showAuthStatus('✅ Successfully connected! You can now upload files.', 'success');
+            
+            // Show upload section
+            setTimeout(() => {
+                authSection.style.display = 'none';
+                uploadSection.style.display = 'block';
+                showStatus('Ready to receive your payment confirmation. Please fill in all required fields.', 'info');
+            }, 1500);
+        }
+
+        // Request Google Drive permission
+        function requestGooglePermission() {
+            if (tokenClient) {
+                authButton.disabled = true;
+                authButton.innerHTML = '<span>⏳</span><span>Connecting...</span>';
+                showAuthStatus('Opening Google authorization window...', 'info');
+                tokenClient.requestAccessToken();
+            } else {
+                showAuthStatus('System not ready. Please refresh the page.', 'error');
+            }
+        }
+
+        // Add event listener to auth button
+        authButton.addEventListener('click', requestGooglePermission);
+
+        function showAuthStatus(message, type) {
+            authStatus.textContent = message;
+            authStatus.className = `status-message ${type}`;
+            authStatus.style.display = 'block';
         }
 
         // Form validation
@@ -771,21 +862,13 @@
             e.preventDefault();
             uploadArea.classList.remove('dragover');
             
-            if (!isGoogleDriveReady) {
-                showStatus('Please authorize Google Drive access first', 'error');
-                requestGooglePermission();
-                return;
-            }
-            
+            // Since upload section only shows after auth, we can directly handle files
             const files = Array.from(e.dataTransfer.files);
             handleFileSelection(files);
         });
 
         uploadArea.addEventListener('click', () => {
-            if (!isGoogleDriveReady) {
-                requestGooglePermission();
-                return;
-            }
+            // Since upload section only shows after auth, we can directly open file input
             fileInput.click();
         });
 
@@ -864,12 +947,6 @@
             
             if (!selectedFile) {
                 showStatus('Please select a payment confirmation file', 'error');
-                return;
-            }
-
-            if (!isGoogleDriveReady) {
-                showStatus('Please authorize Google Drive access first', 'error');
-                requestGooglePermission();
                 return;
             }
             
