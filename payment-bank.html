@@ -830,7 +830,7 @@
             showStatus('Uploading payment confirmation...', 'info');
             
             try {
-                await simulateUpload(selectedFile, formData);
+                await uploadToGoogleDrive(selectedFile, formData);
                 showStatus('✅ Payment confirmation submitted successfully! We\'ll be in touch about your coupons.', 'success');
                 
                 // Reset form
@@ -911,5 +911,8 @@
             showStatus('Ready to receive your payment confirmation. Please fill in all required fields.', 'info');
         });
     </script>
+    <script src="https://apis.google.com/js/api.js"></script>
+<script src="https://accounts.google.com/gsi/client"></script>
+
 </body>
 </html>
