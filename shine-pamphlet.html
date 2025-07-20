@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Slam 2025 - Event Guide</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-red: #DB3328;
+            --primary-grey: #BCBDC0;
+            --bg-color: #e0e5ec;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+            --shadow-light: #ffffff;
+            --shadow-dark: #a3b1c6;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-color);
+        }
+        
+        .container {
+            max-width: 297mm; /* A3 width */
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--bg-color);
+        }
+        
+        @media print {
+            .container {
+                padding: 0;
+                max-width: 100%;
+            }
+        }
+        
+        /* Neumorphic elements */
+        .neu-flat {
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--shadow-dark),
+                        -5px -5px 10px var(--shadow-light);
+        }
+        
+        .neu-pressed {
+            background: var(--bg-color);
+            box-shadow: inset 5px 5px 10px var(--shadow-dark),
+                        inset -5px -5px 10px var(--shadow-light);
+        }
+        
+        .neu-floating {
+            background: var(--bg-color);
+            box-shadow: 15px 15px 30px var(--shadow-dark),
+                        -15px -15px 30px var(--shadow-light);
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-grey) 100%);
+            opacity: 0.1;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            padding: 15px;
+            background: var(--white);
+            box-shadow: 5px 5px 15px var(--shadow-dark),
+                        -5px -5px 15px var(--shadow-light);
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header .tagline {
+            font-size: 20px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        /* Event Details Card */
+        .event-card {
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 25px;
+        }
+        
+        .event-card h2 {
+            color: var(--primary-red);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .detail-item {
+            padding: 20px;
+            border-radius: 15px;
+            background: var(--bg-color);
+            box-shadow: inset 3px 3px 6px var(--shadow-dark),
+                        inset -3px -3px 6px var(--shadow-light);
+            text-align: center;
+        }
+        
+        .detail-item .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .detail-item strong {
+            display: block;
+            color: var(--primary-red);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .detail-item p {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        /* Section Cards */
+        .section {
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 25px;
+            background: var(--bg-color);
+            box-shadow: 10px 10px 20px var(--shadow-dark),
+                        -10px -10px 20px var(--shadow-light);
+        }
+        
+        .section h2 {
+            color: var(--primary-red);
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary-red);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h3 {
+            color: var(--text-dark);
+            font-size: 20px;
+            font-weight: 600;
+            margin: 20px 0 15px 0;
+        }
+        
+        /* Lists */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        ul li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            color: var(--text-dark);
+        }
+        
+        ul li::before {
+            content: '⚽';
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+        
+        /* Congregation Pills */
+        .congregation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .congregation-pill {
+            padding: 15px 20px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-dark);
+            background: var(--bg-color);
+            box-shadow: 5px 5px 10px var(--shadow-dark),
+                        -5px -5px 10px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+        
+        .congregation-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 7px 7px 14px var(--shadow-dark),
+                        -7px -7px 14px var(--shadow-light);
+        }
+        
+        /* Schedule Table */
+        .schedule-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 20px;
+            background: var(--bg-color);
+            box-shadow: inset 5px 5px 10px var(--shadow-dark),
+                        inset -5px -5px 10px var(--shadow-light);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 5px 5px 15px var(--shadow-dark),
+                        -5px -5px 15px var(--shadow-light);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        th {
+            background: var(--primary-red);
+            color: var(--white);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        td {
+            background: var(--white);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .time-cell {
+            font-weight: 700;
+            color: var(--primary-red);
+            background: var(--bg-color);
+        }
+        
+        .final-row {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        }
+        
+        .final-row td {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-red);
+        }
+        
+        .info-box h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .coupon-box {
+            background: var(--bg-color);
+            box-shadow: inset 5px 5px 10px #c8d0e0,
+                        inset -5px -5px 10px var(--white);
+        }
+        
+        .coupon-box h4 {
+            color: var(--primary-red);
+        }
+        
+        .mission-box {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+        }
+        
+        .mission-box h4 {
+            color: #0369a1;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        }
+        
+        .warning-box h4 {
+            color: #92400e;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 40px;
+            border-radius: 30px;
+            background: var(--bg-color);
+            box-shadow: 15px 15px 30px var(--shadow-dark),
+                        -15px -15px 30px var(--shadow-light);
+        }
+        
+        .footer h3 {
+            color: var(--primary-red);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .footer p {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        
+        .emoji-large {
+            font-size: 40px;
+            margin: 20px 0;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .section, .neu-flat, .neu-floating {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            
+            .neu-pressed {
+                box-shadow: none;
+                background: #f5f5f5;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+            
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .congregation-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header neu-floating">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" alt="Cornerstone Logo">
+                </div>
+            </div>
+            <h1>Soccer Slam 2025</h1>
+            <p class="tagline">Fellowship • Fun • Fundraising for Missions</p>
+        </div>
+        
+        <div class="event-card neu-flat">
+            <h2>📍 Event Details</h2>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="icon">📅</div>
+                    <strong>Date</strong>
+                    <p>Sunday, 10 August 2025</p>
+                </div>
+                <div class="detail-item">
+                    <div class="icon">⏰</div>
+                    <strong>Time</strong>
+                    <p>1:30 PM - 4:40 PM</p>
+                    <p style="font-size: 14px; color: var(--text-light);">Setup from 1:00 PM</p>
+                </div>
+                <div class="detail-item">
+                    <div class="icon">📍</div>
+                    <strong>Location</strong>
+                    <p>Powells Creek Reserve</p>
+                    <p style="font-size: 14px; color: var(--text-light);">Homebush</p>
+                </div>
+                <div class="detail-item">
+                    <div class="icon">🎯</div>
+                    <strong>Purpose</strong>
+                    <p>Raising Funds</p>
+                    <p style="font-size: 14px; color: var(--text-light);">For Church Missions</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>⚽ Participating Congregations</h2>
+            <div class="congregation-grid">
+                <div class="congregation-pill">Concord</div>
+                <div class="congregation-pill">Eastwood</div>
+                <div class="congregation-pill">Homebush Bay</div>
+                <div class="congregation-pill">Kellyville</div>
+                <div class="congregation-pill">Kogarah</div>
+                <div class="congregation-pill">Rhodes</div>
+                <div class="congregation-pill">Strathfield</div>
+                <div class="congregation-pill">Willoughby</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🏆 Tournament Format & Rules</h2>
+            
+            <h3>Adults Tournament (7-a-side)</h3>
+            <ul>
+                <li><strong>Teams:</strong> One per congregation (8 teams total)</li>
+                <li><strong>Format:</strong> Knockout tournament with consolation games</li>
+                <li><strong>Match Duration:</strong> 2 x 15 minute halves + 5 minute halftime</li>
+                <li><strong>Total Game Time:</strong> 35 minutes per match</li>
+                <li><strong>Gender Rule:</strong> Minimum 1 female player on field at ALL times</li>
+                <li><strong>Substitutions:</strong> Unlimited rolling substitutions</li>
+                <li><strong>Guaranteed Games:</strong> Every team plays at least 2 matches</li>
+            </ul>
+            
+            <h3>Kids Tournament (Ages 4-13)</h3>
+            <ul>
+                <li><strong>Teams:</strong> 4 mixed teams (randomly allocated)</li>
+                <li><strong>Age Range:</strong> 4-13 years old</li>
+                <li><strong>Format:</strong> Round-robin for maximum participation</li>
+                <li><strong>Focus:</strong> Fun, inclusion, and skill development</li>
+                <li><strong>Requirement:</strong> Parent/guardian must be present</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>📅 Tournament Schedule</h2>
+            <p style="margin-bottom: 15px; color: var(--text-light);">4 fields running simultaneously • 5 minute changeover between games</p>
+            <div class="schedule-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Field 1</th>
+                            <th>Field 2</th>
+                            <th>Field 3</th>
+                            <th>Field 4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-cell">1:30 - 2:05 PM</td>
+                            <td>Quarter-Final 1</td>
+                            <td>Quarter-Final 2</td>
+                            <td>Quarter-Final 3</td>
+                            <td>Quarter-Final 4</td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">2:10 - 2:45 PM</td>
+                            <td>Semi-Final 1</td>
+                            <td>Semi-Final 2</td>
+                            <td>Kids Game 1</td>
+                            <td>Kids Game 2</td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">2:50 - 3:25 PM</td>
+                            <td>Consolation SF 1</td>
+                            <td>Consolation SF 2</td>
+                            <td>Kids Game 3</td>
+                            <td>Kids Game 4</td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">3:30 - 4:05 PM</td>
+                            <td>5th Place Playoff</td>
+                            <td>7th Place Playoff</td>
+                            <td>Kids Semi 1</td>
+                            <td>Kids Semi 2</td>
+                        </tr>
+                        <tr class="final-row">
+                            <td class="time-cell">4:10 - 4:40 PM</td>
+                            <td>🏆 GRAND FINAL</td>
+                            <td>3rd Place Playoff</td>
+                            <td>Kids Final</td>
+                            <td>Trophy Presentation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🍔 Food Stalls & Refreshments</h2>
+            
+            <div class="info-box coupon-box">
+                <h4>💵 Coupon System</h4>
+                <ul>
+                    <li><strong>1 Coupon = $5</strong> (All purchases use coupons)</li>
+                    <li>Food items priced at 1, 2, or 3 coupons ($5, $10, $15)</li>
+                    <li>Pre-purchase from your SHINE representative to avoid queues</li>
+                    <li>Also available on the day at the Information Tent</li>
+                    <li>Accept cash, card, or PayID for coupon purchases</li>
+                </ul>
+            </div>
+            
+            <h3>What's Available</h3>
+            <ul>
+                <li><strong>8 Food Stalls</strong> - One from each congregation</li>
+                <li><strong>Drinks Stall</strong> - Cold beverages and refreshments</li>
+                <li><strong>Desserts & Snacks</strong> - Sweet treats at selected stalls</li>
+                <li>Variety of cuisines representing our diverse congregations</li>
+                <li>Dietary options available - check with individual stalls</li>
+            </ul>
+            
+            <div class="info-box warning-box">
+                <h4>⚠️ Stall Requirements</h4>
+                <ul>
+                    <li>NO external power - battery operated equipment only</li>
+                    <li>LP gas permitted (no other gas types allowed)</li>
+                    <li>BYO tables, chairs, marquees, and shade</li>
+                    <li>Follow NSW food safety guidelines</li>
+                    <li>Complete pack-down and site clean-up</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🌍 Mission Support</h2>
+            <div class="info-box mission-box">
+                <h4>💝 Where Your Money Goes</h4>
+                <p style="margin-bottom: 15px;">ALL proceeds from the event support our church's mission partners worldwide.</p>
+                <p><strong>Visit the Mission Stall to:</strong></p>
+                <ul>
+                    <li>Learn about our mission partners and their work</li>
+                    <li>See exactly where funds are being directed</li>
+                    <li>Pray for specific mission needs</li>
+                    <li>Get updates on recent mission activities</li>
+                    <li>Sign up for mission newsletters</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📋 Event Day Information</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div>
+                    <h3>What to Bring</h3>
+                    <ul>
+                        <li>Sun protection (hat, sunscreen, sunglasses)</li>
+                        <li>Water bottle (stay hydrated!)</li>
+                        <li>Camp chairs or picnic blankets</li>
+                        <li>Cash/card for coupon purchases</li>
+                        <li>Team colors if you have them</li>
+                        <li>Great attitude and sportsmanship!</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Parking & Transport</h3>
+                    <ul>
+                        <li>Limited parking - carpooling encouraged</li>
+                        <li>Parking attendants: 1:00-2:30 PM</li>
+                        <li>Overflow parking nearby</li>
+                        <li>Public transport options available</li>
+                        <li>Drop-off zone for families</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Safety & First Aid</h3>
+                    <ul>
+                        <li>First Aid tent at Information Point</li>
+                        <li>Qualified first aiders on site</li>
+                        <li>Ice available for injuries</li>
+                        <li>Emergency contacts required for players</li>
+                        <li>Kids must have parent present</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Weather Policy</h3>
+                    <ul>
+                        <li>Event proceeds rain or shine</li>
+                        <li>Cancellation decision by 8 AM</li>
+                        <li>Updates via WhatsApp & social media</li>
+                        <li>Check church announcements</li>
+                        <li>Wet weather backup plans in place</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🙋 Volunteer Opportunities</h2>
+            <p style="margin-bottom: 20px; font-size: 18px; color: var(--text-light);">We still need help! Contact your SHINE representative to volunteer:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                <div class="detail-item">
+                    <strong>Setup Crew</strong>
+                    <p>12:30 - 1:30 PM</p>
+                </div>
+                <div class="detail-item">
+                    <strong>Parking Team</strong>
+                    <p>1:00 - 2:30 PM</p>
+                </div>
+                <div class="detail-item">
+                    <strong>Stall Assistants</strong>
+                    <p>Various shifts</p>
+                </div>
+                <div class="detail-item">
+                    <strong>Field Marshals</strong>
+                    <p>1:30 - 4:40 PM</p>
+                </div>
+                <div class="detail-item">
+                    <strong>Information Desk</strong>
+                    <p>1:00 - 4:30 PM</p>
+                </div>
+                <div class="detail-item">
+                    <strong>Clean-up Heroes</strong>
+                    <p>4:40 - 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h3>Questions or Need Help?</h3>
+            <p>Contact your congregation's SHINE representative</p>
+            <p style="margin-top: 15px;"><strong>Event Coordinator: Paul Gray</strong></p>
+            <p>Email: paulgspeaks@gmail.com</p>
+            <div class="emoji-large">⚽ 🏆 ⚽</div>
+            <p style="font-size: 24px; font-weight: 700; color: var(--primary-red);">See you on the field!</p>
+            <p style="margin-top: 20px; font-size: 14px; color: var(--text-light);">Let's make this the best Soccer Slam yet!</p>
+        </div>
+    </div>
+</body>
+</html>
