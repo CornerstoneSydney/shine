@@ -17,6 +17,9 @@
             min-height: 100vh;
             padding: 20px;
             line-height: 1.6;
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
         }
 
         .container {
@@ -27,6 +30,8 @@
             max-width: 1000px;
             width: 100%;
             margin: 0 auto;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
         .header {
@@ -49,6 +54,11 @@
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo:first-child {
+            /* SHINE logo - add drop shadow for better visibility */
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
         }
 
         .header h1 {
@@ -297,15 +307,19 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 20px;
+                padding: 15px;
+                margin: 10px;
+                width: calc(100% - 20px);
             }
             
             .header h1 {
                 font-size: 2.2em;
+                word-wrap: break-word;
             }
 
             .logos {
                 gap: 15px;
+                flex-direction: column;
             }
 
             .logo {
@@ -317,7 +331,74 @@
             }
 
             .section {
-                padding: 20px;
+                padding: 15px;
+                margin-bottom: 25px;
+            }
+
+            .section h2 {
+                font-size: 1.6em;
+                word-wrap: break-word;
+            }
+
+            .section p {
+                font-size: 1em;
+            }
+
+            .event-details {
+                padding: 15px;
+            }
+
+            .event-details h2 {
+                font-size: 1.4em;
+            }
+
+            .stalls-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            /* Ensure coupon image is responsive */
+            .image-container img {
+                max-width: 90%;
+                height: auto;
+            }
+
+            /* Better handling of long links */
+            .section a {
+                font-size: 0.9em;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+                margin: 5px;
+                width: calc(100% - 10px);
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .section {
+                padding: 12px;
+            }
+
+            .section h2 {
+                font-size: 1.4em;
+            }
+
+            .logo {
+                max-width: 120px;
+                padding: 10px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -391,8 +472,8 @@
         <section id="whats-on" class="section">
             <h2>What's on?</h2>
             
-            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: start;">
-                <div>
+            <div class="whats-on-layout">
+                <div class="whats-on-content">
                     <h3>🎯 Missions Support</h3>
                     <p>Come along to the Missions stall to learn about Cornerstone's mission partners and the projects we support globally.</p>
                     <p>Or meet and pray with local missionaries that we support, hearing about how God is working on university campuses across Sydney.</p>
@@ -410,8 +491,8 @@
                     </div>
                     <p style="font-style: italic; text-align: center; color: #DB3328; font-weight: 600;">We have some seriously talented chefs at Cornerstone, so come hungry 😋!</p>
                 </div>
-                <div>
-                    <img src="http://paulgray.co/wp-content/uploads/2025/07/IMG_6926-scaled.webp" alt="Food Stalls" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <div class="whats-on-image">
+                    <img src="http://paulgray.co/wp-content/uploads/2025/07/IMG_6926-scaled.webp" alt="Food Stalls">
                 </div>
             </div>
 
