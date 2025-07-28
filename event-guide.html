@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHINE Soccer Slam - Event Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #BCBDC0 0%, #DB3328 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .event-details {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #DB3328;
+            text-align: center;
+        }
+
+        .event-details h2 {
+            color: #DB3328;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .event-details p {
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .navigation {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .navigation h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .nav-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: #DB3328;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: #DB3328;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #DB3328;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #DB3328;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            font-size: 1.3em;
+        }
+
+        .section p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .section ul {
+            color: #666;
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .highlight-box {
+            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .coupon-info {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #0066cc;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .stalls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stall-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #DB3328;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #f0f0f0;
+        }
+
+        .contact-item strong {
+            color: #DB3328;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white !important;
+                font-size: 12pt;
+                line-height: 1.4;
+                color: black !important;
+            }
+
+            .container {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                padding: 20px !important;
+                max-width: none !important;
+            }
+
+            .header h1 {
+                color: #333 !important;
+                background: none !important;
+                -webkit-text-fill-color: initial !important;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                background: white !important;
+                border: 1px solid #ccc !important;
+            }
+
+            .nav-link:hover {
+                background: none !important;
+                color: #DB3328 !important;
+            }
+
+            .highlight-box {
+                background: #f0f0f0 !important;
+                color: black !important;
+                border: 2px solid #333 !important;
+            }
+
+            .highlight-box h3 {
+                color: black !important;
+            }
+
+            .image-container,
+            .image-grid {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .logos {
+                gap: 15px;
+            }
+
+            .logo {
+                max-width: 140px;
+            }
+
+            .nav-links {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logos">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/Shine-Logo-Official-Trans.png" alt="SHINE Logo" class="logo">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/CornerstoneLogo.png" alt="Cornerstone Logo" class="logo">
+            </div>
+            <h1>⚽ Soccer Slam & Market Stalls</h1>
+            <p class="subtitle">Event Guide</p>
+        </div>
+
+        <div class="event-details">
+            <h2>📅 Sunday, 10 August, 1:30-4:30pm</h2>
+            <p>📍 Powells Creek Sportsground, 64-66 Victoria Avenue, Concord West</p>
+        </div>
+
+        <div class="image-container">
+            <img src="http://paulgray.co/wp-content/uploads/2025/07/image6.jpg" alt="Powells Creek Sportsground">
+        </div>
+
+        <div class="navigation">
+            <h3>📋 In this guide, we cover:</h3>
+            <div class="nav-links">
+                <a href="#what-is-shine" class="nav-link">• What is SHINE?</a>
+                <a href="#how-does-it-work" class="nav-link">• How does it work?</a>
+                <a href="#where-funds-go" class="nav-link">• Where do the funds go?</a>
+                <a href="#whats-on" class="nav-link">• What's on?</a>
+                <a href="#getting-there" class="nav-link">• Getting there</a>
+                <a href="#need-to-know" class="nav-link">• All you need to know</a>
+                <a href="#questions" class="nav-link">• Further questions</a>
+            </div>
+        </div>
+
+        <section id="what-is-shine" class="section">
+            <h2>What is SHINE?</h2>
+            <p><strong>SHINE stands for Serving Hand in Hand Impacting Needs Elsewhere.</strong> It's Cornerstone's main mission fundraising event.</p>
+            <p>This year, the SHINE Soccer Slam and Market Stalls Day is back - where you will be able to support missions, fellowship over food and play soccer together with all 8 Cornerstone congregations.</p>
+        </section>
+
+        <section id="how-does-it-work" class="section">
+            <h2>How does it work?</h2>
+            
+            <div class="image-container">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/image4.jpg" alt="SHINE Coupons" style="max-width: 400px;">
+            </div>
+
+            <p><strong>SHINE currency are coupons.</strong> These coupons can then be exchanged at each of the congregation stalls on the day (see below for What's On).</p>
+            
+            <div class="coupon-info">
+                <h3>💰 Coupon Pricing</h3>
+                <p><strong>5 coupons for $25</strong> or <strong>10 coupons for $50</strong></p>
+            </div>
+
+            <p>We encourage you to prayerfully consider how much you would like to give to missions, rather than how much you can get out of the event or what is available for sale.</p>
+            
+            <p>And if you want to give more, why not consider gifting a coupon or two for other people to enjoy the day?</p>
+            
+            <p><strong>Coupons can be bought from your SHINE representative prior to the event, or at the coupon stall on the day via cash or bank transfer.</strong></p>
+        </section>
+
+        <section id="where-funds-go" class="section">
+            <h2>Where do the funds go?</h2>
+            <p>The funds raised on the day will go towards supporting Cornerstone's mission partners and projects.</p>
+            <p>If you would like to learn more, check out our missions website: <a href="https://www.cornerstonechurch.com.au/mission-initiatives" target="_blank" style="color: #DB3328;">cornerstonechurch.com.au/mission-initiatives</a></p>
+        </section>
+
+        <section id="whats-on" class="section">
+            <h2>What's on?</h2>
+            
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: start;">
+                <div>
+                    <h3>🎯 Missions Support</h3>
+                    <p>Come along to the Missions stall to learn about Cornerstone's mission partners and the projects we support globally.</p>
+                    <p>Or meet and pray with local missionaries that we support, hearing about how God is working on university campuses across Sydney.</p>
+
+                    <h3>🍽️ Congregation Stalls</h3>
+                    <div class="stalls-grid">
+                        <div class="stall-item">☕ <strong>Homebush Bay:</strong> Baked Goods and Coffee</div>
+                        <div class="stall-item">🍪 <strong>Rhodes:</strong> Baked Goods and Matcha</div>
+                        <div class="stall-item">🇻🇳 <strong>Kellyville:</strong> Bánh Mì, Lollies and Henna</div>
+                        <div class="stall-item">🇻🇳 <strong>Strathfield:</strong> Bánh Xèo</div>
+                        <div class="stall-item">🇲🇾 <strong>Kogarah:</strong> Char Kway Teow, Curry puffs, curry paste kits</div>
+                        <div class="stall-item">🍲 <strong>Concord:</strong> Soups, Carbs, and Pho cooking class</div>
+                        <div class="stall-item">🇹🇭 <strong>Willoughby:</strong> Thai Street Food, Satay Sticks and Pad Thai</div>
+                        <div class="stall-item">🎳 <strong>Eastwood:</strong> Carnival Games</div>
+                    </div>
+                    <p style="font-style: italic; text-align: center; color: #DB3328; font-weight: 600;">We have some seriously talented chefs at Cornerstone, so come hungry 😋!</p>
+                </div>
+                <div>
+                    <img src="http://paulgray.co/wp-content/uploads/2025/07/IMG_6926-scaled.webp" alt="Food Stalls" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+
+            <div class="image-grid">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/image3.jpg" alt="Delicious Food 1">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/image5.jpg" alt="Delicious Food 2">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/IMG_7755-1-scaled.webp" alt="Delicious Food 3">
+            </div>
+
+            <h3>⚽ Soccer Slam</h3>
+            <div class="image-container">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/image2.jpg" alt="Soccer Action">
+            </div>
+            <p>📣 Cheer on our teams as they battle it out on the soccer field.</p>
+            <p>⚽ There are two comps: <strong>Kids (4 - 13 years old)</strong>, and <strong>Adults (14 years +)</strong>.</p>
+        </section>
+
+        <section id="getting-there" class="section">
+            <h2>Sounds amazing! How do I get there?</h2>
+            <p>There are only ~50 parking spots at the park, so please consider carpooling with friends 🚘</p>
+            <p>There is also plenty of surrounding street parking, and the park is only a 5 minute walk from Concord West Train Station 🚆</p>
+            <p>See below map for reference:</p>
+            
+            <div class="image-container">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/image7.jpg" alt="Location Map">
+            </div>
+        </section>
+
+        <section id="need-to-know" class="section">
+            <h2>I'm at the event - What else should I know?</h2>
+            
+            <h3>🚶 Getting around</h3>
+            <p>See below the event layout for the day, and where the soccer fields and stalls will be set up.</p>
+            <p>For safety, please don't go to the out of bounds areas, and <strong>supervise your own child(ren) during the event</strong>.</p>
+            
+            <div class="highlight-box">
+                <h3>📍 EVENT MAP</h3>
+                <p>Event layout map to be provided on the day</p>
+            </div>
+
+            <h3>⛑️ First Aid</h3>
+            <p>We pray SHINE will be a safe event and no accidents occur. However, if you do require first aid, head to the <strong>First Aid Point (near the toilet)</strong>. Our first aiders will attend to you.</p>
+
+            <h3>🗑️ Throw it away!</h3>
+            <p>Help us keep the park clean and love our neighbours by throwing away your rubbish in the bin next to each food stall.</p>
+        </section>
+
+        <section id="questions" class="section">
+            <h2>I have more questions, who should I contact?</h2>
+            <p>Please contact your local SHINE2025 representative:</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>Concord</strong>
+                    Gary Wang
+                </div>
+                <div class="contact-item">
+                    <strong>Eastwood</strong>
+                    Diana Rianto
+                </div>
+                <div class="contact-item">
+                    <strong>Homebush Bay</strong>
+                    Naomi Lum Mow & Selwyn Chang
+                </div>
+                <div class="contact-item">
+                    <strong>Kellyville</strong>
+                    Jayne
+                </div>
+                <div class="contact-item">
+                    <strong>Kogarah</strong>
+                    Paul Gray
+                </div>
+                <div class="contact-item">
+                    <strong>Rhodes</strong>
+                    Jess Chan (Lum Mow)
+                </div>
+                <div class="contact-item">
+                    <strong>Strathfield</strong>
+                    Josh Moon
+                </div>
+                <div class="contact-item">
+                    <strong>Willoughby</strong>
+                    Emma Chan
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>🎉 See you there!</h3>
+                <p>We can't wait to celebrate God's faithfulness together and support His mission around the world!</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
