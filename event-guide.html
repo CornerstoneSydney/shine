@@ -256,6 +256,33 @@
             margin-bottom: 5px;
         }
 
+        .whats-on-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: start;
+            margin-bottom: 30px;
+        }
+
+        .whats-on-content {
+            width: 100%;
+            min-width: 0; /* Prevents grid overflow */
+        }
+
+        .whats-on-image {
+            width: 100%;
+            max-width: 300px; /* Constrain the image size */
+        }
+
+        .whats-on-image img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: block;
+        }
+
         /* Print Styles */
         @media print {
             body {
@@ -360,6 +387,15 @@
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
 
+            .whats-on-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .whats-on-image {
+                order: -1; /* Show image first on mobile */
+            }
+
             /* Ensure coupon image is responsive */
             .image-container img {
                 max-width: 90%;
@@ -399,6 +435,15 @@
 
             .contact-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .whats-on-layout {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .coupon-image {
+                max-width: 250px !important;
             }
         }
     </style>
@@ -446,7 +491,7 @@
             <h2>How does it work?</h2>
             
             <div class="image-container">
-                <img src="http://paulgray.co/wp-content/uploads/2025/07/image4.jpg" alt="SHINE Coupons" style="max-width: 400px;">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/image4.jpg" alt="SHINE Coupons" class="coupon-image">
             </div>
 
             <p><strong>SHINE currency are coupons.</strong> These coupons can then be exchanged at each of the congregation stalls on the day (see below for What's On).</p>
