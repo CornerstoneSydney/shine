@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHINE 2025 - Stall Holders Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            line-height: 1.6;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Password Protection Overlay */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #BCBDC0 0%, #DB3328 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .password-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .password-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .password-container p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #DB3328;
+        }
+
+        .password-submit {
+            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .password-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(219, 51, 40, 0.3);
+        }
+
+        .password-error {
+            color: #DB3328;
+            margin-top: 15px;
+            display: none;
+        }
+
+        /* Main Content (Hidden by default) */
+        .main-content {
+            display: none;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: #DB3328;
+            color: white;
+        }
+
+        .nav-menu a.active {
+            background: #DB3328;
+            color: white;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: #DB3328;
+            color: white;
+        }
+
+        /* Main Content Area */
+        .main-wrapper {
+            background: linear-gradient(135deg, #BCBDC0 0%, #DB3328 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        /* Quick Nav */
+        .quick-nav {
+            background: #f0f0f0;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .quick-nav h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .quick-nav-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .quick-nav-link {
+            color: #DB3328;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: block;
+        }
+
+        .quick-nav-link:hover {
+            background: #DB3328;
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: clamp(1.6rem, 4vw, 2rem);
+            border-bottom: 3px solid #DB3328;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #DB3328;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            font-size: 1.3em;
+        }
+
+        .section p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .section ul {
+            color: #666;
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        /* Stalls Grid */
+        .stalls-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .stall-overview-item {
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid #DB3328;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .stall-overview-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Rules Box */
+        .rules-box {
+            background: #e8f4fd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #0066cc;
+        }
+
+        .rules-box h3 {
+            color: #0066cc;
+            margin-bottom: 15px;
+        }
+
+        /* Important Box */
+        .important-box {
+            background: #fef3e3;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .important-box h3 {
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+
+        /* Critical Box */
+        .critical-box {
+            background: #fee;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #dc2626;
+        }
+
+        .critical-box h3 {
+            color: #dc2626;
+            margin-bottom: 15px;
+        }
+
+        /* Timeline Table */
+        .timeline-table {
+            width: 100%;
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        .timeline-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .timeline-table th {
+            background: #DB3328;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .timeline-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .timeline-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .time-slot {
+            font-weight: 600;
+            color: #DB3328;
+        }
+
+        /* Checklist Box */
+        .checklist-box {
+            background: #f0f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #0ea5e9;
+        }
+
+        .checklist-box h3 {
+            color: #0ea5e9;
+            margin-bottom: 20px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .checklist-section h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .checklist-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist-section li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .checklist-section li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #0ea5e9;
+            font-weight: bold;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        /* Allergy Sign Template */
+        .allergy-template {
+            background: white;
+            border: 3px solid #dc2626;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        .allergy-template h3 {
+            color: #dc2626;
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .allergy-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .allergy-table th,
+        .allergy-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .allergy-table th {
+            background: #fee;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            .main-wrapper {
+                padding: 20px 10px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .quick-nav-links {
+                grid-template-columns: 1fr;
+            }
+
+            .stalls-overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .checklist-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-table {
+                font-size: 0.9em;
+            }
+
+            .timeline-table th,
+            .timeline-table td {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 15px;
+                margin-bottom: 25px;
+            }
+
+            .password-container {
+                padding: 25px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .password-overlay,
+            .top-nav {
+                display: none !important;
+            }
+
+            .main-content {
+                display: block !important;
+            }
+
+            .main-wrapper {
+                background: white !important;
+                padding: 0 !important;
+            }
+
+            .container {
+                box-shadow: none !important;
+                padding: 20px !important;
+            }
+
+            .allergy-template {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Protection Overlay -->
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-container">
+            <h2>🍽️ Stall Holders Access</h2>
+            <p>This page is for stall holders only. Please enter the password to continue.</p>
+            <input type="password" class="password-input" id="passwordInput" placeholder="Enter password">
+            <button class="password-submit" onclick="checkPassword()">Access Guide</button>
+            <p class="password-error" id="passwordError">Incorrect password. Please try again.</p>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden until password is correct) -->
+    <div class="main-content" id="mainContent">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="nav-container">
+                <img src="http://paulgray.co/wp-content/uploads/2025/07/Shine-Logo-Official-Trans.png" alt="SHINE Logo" class="nav-logo">
+                
+                <ul class="nav-menu">
+                    <li><a href="event-guide.html">Event Guide</a></li>
+                    <li><a href="#" class="active">Stall Holders Guide</a></li>
+                    <li><a href="soccer-captains-guide.html">Soccer Captains Guide</a></li>
+                </ul>
+
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            </div>
+            
+            <div class="mobile-nav" id="mobileNav">
+                <a href="event-guide.html">Event Guide</a>
+                <a href="#" class="active">Stall Holders Guide</a>
+                <a href="soccer-captains-guide.html">Soccer Captains Guide</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-wrapper">
+            <div class="container">
+                <div class="header">
+                    <h1>🍽️ Stall Holders Guide</h1>
+                    <p class="subtitle">Everything you need to run a successful stall at SHINE 2025</p>
+                </div>
+
+                <div class="quick-nav">
+                    <h3>📋 Quick Navigation</h3>
+                    <div class="quick-nav-links">
+                        <a href="#overview" class="quick-nav-link">• Stall Overview</a>
+                        <a href="#critical-rules" class="quick-nav-link">• Critical Rules & Safety</a>
+                        <a href="#setup" class="quick-nav-link">• Setup & Equipment</a>
+                        <a href="#food-safety" class="quick-nav-link">• Food Safety & Allergies</a>
+                        <a href="#sales" class="quick-nav-link">• Sales & Coupons</a>
+                        <a href="#timeline" class="quick-nav-link">• Event Day Timeline</a>
+                        <a href="#checklist" class="quick-nav-link">• Complete Checklist</a>
+                    </div>
+                </div>
+
+                <section id="overview" class="section">
+                    <h2>Stall Overview</h2>
+                    <p>Thank you for hosting a stall at SHINE 2025! Your generous service helps make this event special for our church family while raising funds for our mission partners.</p>
+                    
+                    <h3>Confirmed Stalls for 2025</h3>
+                    <div class="stalls-overview-grid">
+                        <div class="stall-overview-item">☕ <strong>Homebush Bay:</strong> Baked Goods and Coffee</div>
+                        <div class="stall-overview-item">🍪 <strong>Rhodes:</strong> Baked Goods and Matcha</div>
+                        <div class="stall-overview-item">🇻🇳 <strong>Kellyville:</strong> Bánh Mì, Lollies and Henna</div>
+                        <div class="stall-overview-item">🇻🇳 <strong>Strathfield:</strong> Bánh Xèo</div>
+                        <div class="stall-overview-item">🇲🇾 <strong>Kogarah:</strong> Char Kway Teow, Curry puffs, curry paste kits</div>
+                        <div class="stall-overview-item">🍲 <strong>Concord:</strong> Soups, Carbs, and Pho cooking class</div>
+                        <div class="stall-overview-item">🇹🇭 <strong>Willoughby:</strong> Thai Street Food, Satay Sticks and Pad Thai</div>
+                        <div class="stall-overview-item">🎳 <strong>Eastwood:</strong> Carnival Games</div>
+                        <div class="stall-overview-item">🎯 <strong>SHINE Committee:</strong> Missions Stall & Information</div>
+                    </div>
+                    
+                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSkM_sEX7UWNYr-fLAPq3C2PsSwWvlMIY0C7lMQsYlItWE83kvXwrVCTN4kWYIbfmSIRTib0ZMSIuVU/pubhtml?widget=true&amp;headers=false"></iframe>
+                    
+                    <div class="important-box">
+                        <h3>🎯 Key Event Details</h3>
+                        <p><strong>Date:</strong> Sunday, 10 August 2025</p>
+                        <p><strong>Setup Time:</strong> From 1:00 PM</p>
+                        <p><strong>Sales Time:</strong> 1:30 PM - 4:30 PM</p>
+                        <p><strong>Location:</strong> Powells Creek Sportsground, Concord West</p>
+                        <p><strong>Expected Attendance:</strong> 350-400 people</p>
+                    </div>
+                </section>
+
+                <section id="critical-rules" class="section">
+                    <h2>Critical Rules & Safety Requirements</h2>
+                    
+                    <div class="critical-box">
+                        <h3>🚫 NO ELECTRICITY AVAILABLE</h3>
+                        <p>There are <strong>NO power sockets</strong> available at the site. You cannot use any electrical appliances for cooking or operating equipment. Please plan accordingly!</p>
+                    </div>
+
+                    <div class="critical-box">
+                        <h3>💧 WATER LIMITATIONS</h3>
+                        <p>The two water points at the site are <strong>NOT recommended</strong> for use in food preparation or drinking. Please bring your own water for:</p>
+                        <ul>
+                            <li>Personal hydration</li>
+                            <li>Food preparation</li>
+                            <li>Hand washing</li>
+                            <li>Cleaning</li>
+                        </ul>
+                    </div>
+
+                    <div class="critical-box">
+                        <h3>🔥 GAS RESTRICTIONS</h3>
+                        <p><strong>IMPORTANT:</strong> Due to limited fire safety equipment onsite:</p>
+                        <ul>
+                            <li>❌ <strong>Butane gas burners are NOT allowed</strong></li>
+                            <li>✅ <strong>LPG burners are permitted</strong></li>
+                            <li>If using LPG, you MUST bring EITHER:
+                                <ul>
+                                    <li>A fire blanket, OR</li>
+                                    <li>A Class C (Dry Chemical) fire extinguisher</li>
+                                </ul>
+                            </li>
+                            <li>Fire safety equipment must be present and easily accessible at your stall</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-info">
+                        <h3>⚠️ Safety Officer</h3>
+                        <p><strong>Josh Moon</strong> - Strathfield Representative</p>
+                        <p>Contact Josh for any safety-related questions or concerns</p>
+                    </div>
+                </section>
+
+                <section id="setup" class="section">
+                    <h2>Setup & Equipment Requirements</h2>
+
+                    <h3>🏪 Tables & Shelter</h3>
+                    <ul>
+                        <li><strong>You MUST bring your own tables</strong> - none will be provided</li>
+                        <li>Check with your congregation elders/ministers to borrow church tables</li>
+                        <li>Gazebo shelters are allowed but not mandatory</li>
+                        <li>If bringing a gazebo, anchor it securely to prevent wind damage</li>
+                        <li>Stalls will be on grass turf which may be uneven in some areas</li>
+                    </ul>
+
+                    <h3>📍 Site Access & Parking</h3>
+                    <ul>
+                        <li><strong>Setup starts at 1:00 PM</strong> (earlier than the event start time)</li>
+                        <li>Enter via Victoria Ave and turn left before going under the bridge</li>
+                        <li>Limited parking near the roundabout - first come, first served</li>
+                        <li>No reserved parking spaces for stall holders</li>
+                        <li>Encourage your helpers to use street parking or public transport</li>
+                    </ul>
+
+                    <div class="important-box">
+                        <h3>🗑️ Waste Management</h3>
+                        <ul>
+                            <li>Each stall must set up their own rubbish bins</li>
+                            <li>Bring adequate trash bags for the day</li>
+                            <li>Take trash bags to the main collection point near the roundabout</li>
+                            <li><strong>If bins are full, please take rubbish home for disposal</strong></li>
+                            <li>Leave your area cleaner than you found it</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="food-safety" class="section">
+                    <h2>Food Safety & Allergy Requirements</h2>
+
+                    <div class="rules-box">
+                        <h3>🍴 Food Handling Requirements</h3>
+                        <ul>
+                            <li><strong>All food items MUST be covered</strong> (gazebos help fulfill this)</li>
+                            <li><strong>Wear disposable food-grade gloves</strong> when handling food</li>
+                            <li>Provide <strong>biodegradable serving utensils only</strong></li>
+                            <li>Maintain proper food temperature controls</li>
+                            <li>Follow NSW Food Authority guidelines for temporary events</li>
+                        </ul>
+                    </div>
+
+                    <h3>⚠️ Allergy Signage - MANDATORY</h3>
+                    <p>All food stalls MUST display an allergy sign listing ingredients. You must indicate if your food contains:</p>
+                    <ul>
+                        <li>Peanuts</li>
+                        <li>Tree nuts</li>
+                        <li>Sesame</li>
+                        <li>Soy</li>
+                        <li>Cow's milk</li>
+                        <li>Egg</li>
+                        <li>Gluten</li>
+                        <li>Seafood (Fish, Mollusc, Crustacea)</li>
+                        <li>Artificial colours and preservatives</li>
+                        <li>Kiwi fruit / Strawberries</li>
+                    </ul>
+
+                    <div class="allergy-template">
+                        <h3>ALLERGY INFORMATION</h3>
+                        <table class="allergy-table">
+                            <thead>
+                                <tr>
+                                    <th>Allergenic Ingredients</th>
+                                    <th>Items Containing This Ingredient</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Peanuts</strong></td>
+                                    <td>(List your items here)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tree nuts</strong></td>
+                                    <td>(List your items here)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sesame</strong></td>
+                                    <td>(List your items here)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Soy</strong></td>
+                                    <td>(List your items here)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cow's milk</strong></td>
+                                    <td>(List your items here)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Egg</strong></td>
+                                    <td>(List your items here)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Gluten</strong></td>
+                                    <td>(List your items here)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Seafood</strong></td>
+                                    <td>(List your items here)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Artificial colours/preservatives</strong></td>
+                                    <td>(List your items here)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kiwi/Strawberries</strong></td>
+                                    <td>(List your items here)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="text-align: center; margin-top: 15px; font-weight: bold;">Please inform us of any allergies when ordering</p>
+                    </div>
+
+                    <p style="text-align: center; margin-top: 10px;"><strong>👆 Print this template and fill it out for your stall</strong></p>
+                </section>
+
+                <section id="sales" class="section">
+                    <h2>Sales & Coupon System</h2>
+
+                    <h3>💰 How Coupons Work</h3>
+                    <ul>
+                        <li><strong>Coupons are the ONLY form of payment</strong> accepted at stalls</li>
+                        <li>Each coupon = $5 value</li>
+                        <li>Coupons are sold in sets of 5 ($25) or 10 ($50)</li>
+                        <li>10-coupon sets purchased in advance have a <strong>bonus coupon sticker on the back</strong></li>
+                        <li>Price your items in coupon increments (1, 2, or 3 coupons = $5, $10, or $15)</li>
+                    </ul>
+
+                    <h3>✍️ Marking Coupons</h3>
+                    <p>To redeem a coupon:</p>
+                    <ul>
+                        <li>Mark the redemption square with any non-erasable writing instrument</li>
+                        <li>Use: stamp, ballpoint pen, or marker</li>
+                        <li>Fill the square completely to avoid disputes</li>
+                        <li>Check backs of 10-sets for bonus coupon stickers</li>
+                        <li>Keep redeemed coupons organized for reconciliation</li>
+                    </ul>
+
+                    <div class="important-box">
+                        <h3>⏰ Sales Timing</h3>
+                        <p><strong>DO NOT start selling before 1:30 PM</strong> - We want all congregations to have equal opportunity to purchase items. The coupon sales booth will open at 1:30 PM for those who haven't pre-purchased.</p>
+                    </div>
+
+                    <h3>📊 Expected Sales Volume</h3>
+                    <p>Based on pre-sales and previous years:</p>
+                    <ul>
+                        <li>Minimum 350 expected attendees</li>
+                        <li>$9,000+ in coupon pre-sales as of early August</li>
+                        <li>Additional on-day sales expected</li>
+                        <li>Plan your inventory accordingly!</li>
+                    </ul>
+                </section>
+
+                <section id="timeline" class="section">
+                    <h2>Event Day Timeline</h2>
+                    
+                    <div class="timeline-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Activity</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="time-slot">1:00 PM</td>
+                                    <td><strong>Stall Setup Begins</strong></td>
+                                    <td>Arrive and start setting up tables, gazebos, signage</td>
+                                </tr>
+                                <tr>
+                                    <td class="time-slot">1:15 PM</td>
+                                    <td><strong>Final Preparations</strong></td>
+                                    <td>Food prep, display setup, team briefing</td>
+                                </tr>
+                                <tr>
+                                    <td class="time-slot">1:30 PM</td>
+                                    <td><strong>🎉 SALES BEGIN</strong></td>
+                                    <td>Event officially starts - begin serving customers!</td>
+                                </tr>
+                                <tr>
+                                    <td class="time-slot">2:30 PM</td>
+                                    <td><strong>Peak Period</strong></td>
+                                    <td>Busiest time - ensure adequate staffing</td>
+                                </tr>
+                                <tr>
+                                    <td class="time-slot">3:30 PM</td>
+                                    <td><strong>Late Afternoon</strong></td>
+                                    <td>Consider discounts if excess inventory</td>
+                                </tr>
+                                <tr>
+                                    <td class="time-slot">4:30 PM</td>
+                                    <td><strong>Sales End & Pack Up</strong></td>
+                                    <td>Stop sales, begin cleaning and packing</td>
+                                </tr>
+                                <tr>
+                                    <td class="time-slot">5:00 PM</td>
+                                    <td><strong>Site Clear</strong></td>
+                                    <td>All stalls packed, rubbish disposed, site clean</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="important-box">
+                        <h3>👥 Staffing Tip</h3>
+                        <p>Ensure you have enough volunteers to allow everyone breaks to enjoy the event. Consider creating a roster so your team can watch soccer games and visit other stalls!</p>
+                    </div>
+                </section>
+
+                <section id="checklist" class="section">
+                    <h2>Complete Stall Holder Checklist</h2>
+                    
+                    <div class="checklist-box">
+                        <h3>✅ Master Packing List</h3>
+                        <div class="checklist-grid">
+                            <div class="checklist-section">
+                                <h4>Essential Equipment</h4>
+                                <ul>
+                                    <li>Tables and chairs</li>
+                                    <li>Gazebo/shelter (optional)</li>
+                                    <li>Gazebo weights/anchors</li>
+                                    <li>Signage for your stall</li>
+                                    <li>Cash box for coupons</li>
+                                    <li>Pens/markers for coupons</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="checklist-section">
+                                <h4>Food Safety Items</h4>
+                                <ul>
+                                    <li>Disposable gloves</li>
+                                    <li>Hand sanitizer</li>
+                                    <li>Food covers/lids</li>
+                                    <li>Biodegradable utensils</li>
+                                    <li>Napkins/serviettes</li>
+                                    <li>Allergy signage (printed)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="checklist-section">
+                                <h4>If Using LPG</h4>
+                                <ul>
+                                    <li>LPG burner (NOT butane)</li>
+                                    <li>Fire blanket OR</li>
+                                    <li>Fire extinguisher (Class C)</li>
+                                    <li>Extra gas canisters</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="checklist-section">
+                                <h4>Cleaning Supplies</h4>
+                                <ul>
+                                    <li>Rubbish bins</li>
+                                    <li>Trash bags (plenty!)</li>
+                                    <li>Cleaning cloths</li>
+                                    <li>Paper towels</li>
+                                    <li>Cleaning spray</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="checklist-section">
+                                <h4>Water & Drinks</h4>
+                                <ul>
+                                    <li>Drinking water for team</li>
+                                    <li>Water for food prep</li>
+                                    <li>Water for cleaning</li>
+                                    <li>Ice/coolers if needed</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="checklist-section">
+                                <h4>Don't Forget!</h4>
+                                <ul>
+                                    <li>Your food/products!</li>
+                                    <li>Price list display</li>
+                                    <li>Team roster/schedule</li>
+                                    <li>First aid kit (basic)</li>
+                                    <li>Phone chargers</li>
+                                    <li>Congregation banner</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rules-box">
+                        <h3>📱 Day-Before Checklist</h3>
+                        <ul>
+                            <li>Confirm all volunteers and create roster</li>
+                            <li>Shop for all ingredients/supplies</li>
+                            <li>Prep what you can in advance</li>
+                            <li>Check weather forecast</li>
+                            <li>Charge all devices</li>
+                            <li>Print allergy signs</li>
+                            <li>Pack non-perishables</li>
+                            <li>Confirm transport arrangements</li>
+                            <li>Brief your team on timing and roles</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <div class="section" style="background: #f0f9ff;">
+                    <h2>Important Contacts</h2>
+                    
+                    <div class="contact-info">
+                        <h3>🎪 Market Stalls Coordinator</h3>
+                        <p><strong>Emma Chan (Adora)</strong> - Willoughby Representative</p>
+                        <p>Contact Emma for stall-related questions</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>📋 Overall Event Coordinator</h3>
+                        <p><strong>Paul Gray</strong></p>
+                        <p>Phone: 0493 427 092</p>
+                        <p>Email: paulgspeaks@gmail.com</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>🚨 On-Day Emergencies</h3>
+                        <p><strong>First Aid:</strong> Located near the toilets</p>
+                        <p><strong>Emergency Services:</strong> 000</p>
+                    </div>
+                </div>
+
+                <div class="section" style="background: linear-gradient(45deg, #DB3328, #BCBDC0); color: white;">
+                    <h2 style="color: white; border-bottom-color: white;">Thank You!</h2>
+                    <p style="color: white;">Your dedication and hard work make SHINE possible. Through your stall, you're not just serving food and fun - you're helping support our mission partners around the world.</p>
+                    <p style="color: white; font-weight: 600; text-align: center; font-size: 1.2em; margin-top: 20px;">Let's make SHINE 2025 the best one yet! 🎉</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password Protection
+        const CORRECT_PASSWORD = 'SH1NEST@LLS';
+        
+        function checkPassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const passwordError = document.getElementById('passwordError');
+            const passwordOverlay = document.getElementById('passwordOverlay');
+            const mainContent = document.getElementById('mainContent');
+            
+            if (passwordInput.value === CORRECT_PASSWORD) {
+                passwordOverlay.style.display = 'none';
+                mainContent.style.display = 'block';
+                localStorage.setItem('stallHoldersAccess', 'true');
+            } else {
+                passwordError.style.display = 'block';
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        }
+
+        // Check if user has already entered password
+        window.onload = function() {
+            const hasAccess = localStorage.getItem('stallHoldersAccess');
+            if (hasAccess === 'true') {
+                document.getElementById('passwordOverlay').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+            }
+        };
+
+        // Allow Enter key to submit password
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('.top-nav');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            if (!nav.contains(event.target) && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.top-nav').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
