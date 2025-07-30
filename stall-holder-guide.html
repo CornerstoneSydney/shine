@@ -469,6 +469,19 @@
             margin-bottom: 5px;
         }
 
+        /* Image Container */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
         /* Allergy Sign Template */
         .allergy-template {
             background: white;
@@ -501,16 +514,6 @@
         .allergy-table th {
             background: #fee;
             font-weight: 600;
-
-        .Allergen-Button {
-            color: #DB3328;
-            text-decoration: none;
-            padding: 12px 16px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            display: block;
-            }
         }
 
         /* Responsive Design */
@@ -554,6 +557,10 @@
             .timeline-table th,
             .timeline-table td {
                 padding: 10px;
+            }
+
+            .google-sheets-container iframe {
+                height: 300px;
             }
         }
 
@@ -854,8 +861,15 @@
                         </table>
                         <p style="text-align: center; margin-top: 15px; font-weight: bold;">Please inform us of any allergies when ordering</p>
                     </div>
-                    <a href="https://docs.google.com/document/d/1KJOhS7khpjD8GSSnVmzW7I0b8lkCspRSApAlVcWIanE/edit?usp=sharing" class=Allergen-Button>Download/Print Allergen Sheet</a>
+
                     <p style="text-align: center; margin-top: 10px;"><strong>👆 Print this template and fill it out for your stall</strong></p>
+                    <p style="text-align: center; margin-top: 10px;">
+                        <a href="https://docs.google.com/document/d/1KJOhS7khpjD8GSSnVmzW7I0b8lkCspRSApAlVcWIanE/edit?usp=sharing" 
+                           target="_blank" 
+                           style="color: #DB3328; font-weight: bold; text-decoration: underline;">
+                           📄 Download Allergy Sign Template (Google Doc)
+                        </a>
+                    </p>
                 </section>
 
                 <section id="sales" class="section">
@@ -888,7 +902,7 @@
                     <h3>📊 Expected Sales Volume</h3>
                     <p>Based on pre-sales and previous years:</p>
                     <ul>
-                        <li>Minimum 350 expected attendees</li>
+                        <li>Expected 650-750 attendees</li>
                         <li>$9,000+ in coupon pre-sales as of early August</li>
                         <li>Additional on-day sales expected</li>
                         <li>Plan your inventory accordingly!</li>
