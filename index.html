@@ -28,6 +28,11 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Wistia Video Player -->
+    <script src="https://fast.wistia.com/player.js" async></script>
+    <script src="https://fast.wistia.com/embed/po9mqp3fsh.js" async type="module"></script>
+    <style>wistia-player[media-id='po9mqp3fsh']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/po9mqp3fsh/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+    
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -373,21 +378,32 @@
                 -15px -15px 30px var(--shadow-light);
         }
 
+        .video-container {
+            margin: 40px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                10px 10px 20px var(--shadow-dark),
+                -10px -10px 20px var(--shadow-light);
+            background: var(--bg-primary);
+        }
+
         .giving-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            display: flex;
+            justify-content: center;
             margin: 40px 0;
         }
 
         .giving-card {
             background: var(--bg-primary);
-            padding: 30px 25px;
+            padding: 40px 35px;
             border-radius: 20px;
             box-shadow: 
                 8px 8px 16px var(--shadow-dark),
                 -8px -8px 16px var(--shadow-light);
             transition: all 0.3s ease;
+            max-width: 400px;
+            width: 100%;
         }
 
         .giving-card:hover {
@@ -398,7 +414,7 @@
         }
 
         .giving-card h4 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--primary-red);
             margin-bottom: 15px;
@@ -406,18 +422,20 @@
 
         .giving-card p {
             color: var(--text-secondary);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
         }
 
         .giving-button {
             background: linear-gradient(135deg, var(--accent-green), #48bb78);
             color: white;
-            padding: 12px 24px;
+            padding: 15px 30px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
             display: inline-block;
             transition: all 0.3s ease;
+            font-size: 1.1rem;
             box-shadow: 
                 4px 4px 8px rgba(56, 161, 105, 0.3),
                 -4px -4px 8px rgba(255, 255, 255, 0.8);
@@ -631,8 +649,9 @@
                 <li><a href="#mission">Mission</a></li>
                 <li><a href="#event">Event</a></li>
                 <li><a href="#giving">Giving</a></li>
+                <li><a href="https://shinesoccer.com/event-guide.html">Event Guide</a></li>
                 <li><a href="/links">All Links</a></li>
-            </ul>
+                </ul>
             
             <a href="#register" class="cta-button">Register Now</a>
             
@@ -705,23 +724,15 @@
                 <h2 class="section-title">Partner With Us in Mission</h2>
                 <p class="section-subtitle">Your generous giving helps support missionaries, church planting, and Gospel work around the world. You can give at any time - not just at SHINE!</p>
                 
+                <div class="video-container">
+                    <wistia-player media-id="po9mqp3fsh" aspect="1.7777777777777777"></wistia-player>
+                </div>
+                
                 <div class="giving-options">
                     <div class="giving-card">
-                        <h4>General Mission</h4>
-                        <p>Support our overall mission efforts and let church leadership direct funds where needed most.</p>
-                        <a href="mailto:accounts@cornerstonechurch.com.au?subject=Mission Giving" class="giving-button">Give to Missions</a>
-                    </div>
-                    
-                    <div class="giving-card">
-                        <h4>Specific Missionary</h4>
-                        <p>Direct your giving to support a specific missionary family or mission project.</p>
-                        <a href="mailto:accounts@cornerstonechurch.com.au?subject=Specific Mission Giving" class="giving-button">Choose Missionary</a>
-                    </div>
-                    
-                    <div class="giving-card">
-                        <h4>SHINE Event</h4>
-                        <p>Support this year's SHINE event and help us raise even more for missions.</p>
-                        <a href="#" class="giving-button">Contact Your SHINE Rep To Buy Coupons</a>
+                        <h4>Our Mission Initiatives</h4>
+                        <p>Discover how we're partnering with missionaries and projects around the world to spread the Gospel and make disciples.</p>
+                        <a href="https://www.cornerstonechurch.com.au/mission-initiatives" class="giving-button">Learn More</a>
                     </div>
                 </div>
                 
