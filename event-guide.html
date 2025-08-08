@@ -13,19 +13,23 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5f5;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             line-height: 1.6;
             width: 100%;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* Top Navigation */
+        /* Top Navigation - Glassmorphism */
         .top-nav {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         .nav-container {
@@ -41,6 +45,7 @@
         .nav-logo {
             height: 40px;
             width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
 
         .nav-menu {
@@ -55,28 +60,33 @@
             font-weight: 500;
             font-size: 16px;
             padding: 8px 16px;
-            border-radius: 5px;
+            border-radius: 20px;
             transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .nav-menu a:hover {
-            background: #DB3328;
+            background: rgba(219, 51, 40, 0.8);
             color: white;
+            box-shadow: 0 4px 15px rgba(219, 51, 40, 0.3);
         }
 
         .nav-menu a.active {
-            background: #DB3328;
+            background: rgba(219, 51, 40, 0.8);
             color: white;
+            box-shadow: 0 4px 15px rgba(219, 51, 40, 0.3);
         }
 
         /* Mobile Menu */
         .mobile-menu-toggle {
             display: none;
-            background: none;
+            background: rgba(255, 255, 255, 0.3);
             border: none;
             font-size: 24px;
             cursor: pointer;
             color: #333;
+            padding: 8px 12px;
+            border-radius: 10px;
         }
 
         .mobile-nav {
@@ -85,8 +95,9 @@
             top: 70px;
             left: 0;
             right: 0;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
             padding: 20px;
         }
 
@@ -100,32 +111,36 @@
             text-decoration: none;
             color: #333;
             font-weight: 500;
-            border-radius: 5px;
+            border-radius: 15px;
             margin-bottom: 8px;
             transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .mobile-nav a:hover,
         .mobile-nav a.active {
-            background: #DB3328;
+            background: rgba(219, 51, 40, 0.8);
             color: white;
         }
 
-        /* Main Content Area */
+        /* Main Content Area - Neumorphism */
         .main-wrapper {
-            background: linear-gradient(135deg, #BCBDC0 0%, #DB3328 100%);
-            min-height: 100vh;
             padding: 40px 20px;
+            min-height: calc(100vh - 70px);
         }
 
         .container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            box-shadow: 
+                20px 20px 60px rgba(163, 177, 198, 0.5),
+                -20px -20px 60px rgba(255, 255, 255, 0.8);
             padding: 40px;
             max-width: 1000px;
             width: 100%;
             margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         /* Header */
@@ -147,16 +162,14 @@
             max-height: 80px;
             width: auto;
             object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
         }
 
         .header h1 {
             color: #333;
             font-size: clamp(2rem, 5vw, 2.8rem);
             margin-bottom: 10px;
-            background: linear-gradient(45deg, #DB3328, #BCBDC0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .header .subtitle {
@@ -164,14 +177,16 @@
             font-size: 1.2em;
         }
 
-        /* Event Details */
+        /* Event Details - Glassmorphism */
         .event-details {
-            background: #f8f9fa;
+            background: rgba(219, 51, 40, 0.1);
+            backdrop-filter: blur(5px);
             padding: 25px;
-            border-radius: 10px;
+            border-radius: 20px;
             margin-bottom: 30px;
-            border-left: 4px solid #DB3328;
+            border: 1px solid rgba(219, 51, 40, 0.2);
             text-align: center;
+            box-shadow: inset 0 2px 10px rgba(219, 51, 40, 0.1);
         }
 
         .event-details h2 {
@@ -188,13 +203,14 @@
 
         /* Weather Notice */
         .weather-notice {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-left: 4px solid #f39c12;
+            background: rgba(255, 243, 205, 0.6);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(243, 156, 18, 0.3);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 20px;
             margin-bottom: 30px;
             text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(243, 156, 18, 0.1);
         }
 
         .weather-notice h3 {
@@ -208,12 +224,15 @@
             font-size: 1.1em;
         }
 
-        /* Navigation */
+        /* Navigation - Neumorphism */
         .navigation {
-            background: #f0f0f0;
+            background: #f0f0f3;
             padding: 25px;
-            border-radius: 10px;
+            border-radius: 20px;
             margin-bottom: 30px;
+            box-shadow: 
+                inset 5px 5px 10px rgba(163, 177, 198, 0.5),
+                inset -5px -5px 10px rgba(255, 255, 255, 0.8);
         }
 
         .navigation h3 {
@@ -232,32 +251,41 @@
             color: #DB3328;
             text-decoration: none;
             padding: 12px 16px;
-            border-radius: 5px;
+            border-radius: 15px;
             transition: all 0.3s ease;
             font-weight: 500;
             display: block;
+            background: #f0f0f3;
+            box-shadow: 
+                5px 5px 10px rgba(163, 177, 198, 0.5),
+                -5px -5px 10px rgba(255, 255, 255, 0.8);
         }
 
         .nav-link:hover {
             background: #DB3328;
             color: white;
+            box-shadow: 
+                inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+                inset -5px -5px 10px rgba(255, 255, 255, 0.1);
         }
 
-        /* Sections */
+        /* Sections - Glassmorphism */
         .section {
             margin-bottom: 40px;
             padding: 30px;
-            border: 2px solid #f0f0f0;
-            border-radius: 10px;
-            background: #fafafa;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         .section h2 {
             color: #333;
             margin-bottom: 20px;
             font-size: clamp(1.6rem, 4vw, 2rem);
-            border-bottom: 3px solid #DB3328;
             padding-bottom: 10px;
+            border-bottom: 3px solid rgba(219, 51, 40, 0.3);
         }
 
         .section h3 {
@@ -284,14 +312,17 @@
             font-size: 1.05em;
         }
 
-        /* Highlight Box */
+        /* Highlight Box - Glassmorphism */
         .highlight-box {
-            background: linear-gradient(45deg, #DB3328, #BCBDC0);
+            background: linear-gradient(135deg, rgba(219, 51, 40, 0.8), rgba(188, 189, 192, 0.8));
+            backdrop-filter: blur(10px);
             color: white;
             padding: 25px;
-            border-radius: 10px;
+            border-radius: 20px;
             margin: 20px 0;
             text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         .highlight-box h3 {
@@ -299,12 +330,19 @@
             margin-bottom: 10px;
         }
 
-        /* Coupon Info */
+        .highlight-box p {
+            color: white;
+        }
+
+        /* Coupon Info - Neumorphism */
         .coupon-info {
             background: #e8f4fd;
             padding: 25px;
-            border-radius: 10px;
+            border-radius: 20px;
             margin: 20px 0;
+            box-shadow: 
+                inset 5px 5px 10px rgba(0, 102, 204, 0.1),
+                inset -5px -5px 10px rgba(255, 255, 255, 0.8);
             border-left: 4px solid #0066cc;
         }
 
@@ -317,8 +355,10 @@
         .image-container img {
             max-width: 100%;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 
+                10px 10px 20px rgba(163, 177, 198, 0.5),
+                -10px -10px 20px rgba(255, 255, 255, 0.8);
         }
 
         .venue-image {
@@ -336,7 +376,7 @@
             width: 100%;
         }
 
-        /* Stalls Grid */
+        /* Stalls Grid - Neumorphism */
         .stalls-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -345,17 +385,21 @@
         }
 
         .stall-item {
-            background: white;
+            background: #f0f0f3;
             padding: 18px;
-            border-radius: 8px;
+            border-radius: 15px;
+            box-shadow: 
+                8px 8px 16px rgba(163, 177, 198, 0.5),
+                -8px -8px 16px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
             border-left: 4px solid #DB3328;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
         }
 
         .stall-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 
+                12px 12px 24px rgba(163, 177, 198, 0.5),
+                -12px -12px 24px rgba(255, 255, 255, 0.8);
         }
 
         /* Contact Grid */
@@ -367,17 +411,22 @@
         }
 
         .contact-item {
-            background: white;
+            background: rgba(255, 255, 255, 0.6);
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 15px;
             text-align: center;
-            border: 2px solid #f0f0f0;
+            backdrop-filter: blur(5px);
+            box-shadow: 
+                5px 5px 10px rgba(163, 177, 198, 0.5),
+                -5px -5px 10px rgba(255, 255, 255, 0.8);
             transition: all 0.2s ease;
         }
 
         .contact-item:hover {
-            border-color: #DB3328;
             transform: translateY(-2px);
+            box-shadow: 
+                8px 8px 16px rgba(163, 177, 198, 0.5),
+                -8px -8px 16px rgba(255, 255, 255, 0.8);
         }
 
         .contact-item strong {
@@ -428,6 +477,7 @@
         @media (max-width: 480px) {
             .container {
                 padding: 20px;
+                border-radius: 15px;
             }
 
             .section {
@@ -472,12 +522,14 @@
                 border-radius: 0 !important;
                 padding: 20px !important;
                 max-width: none !important;
+                background: white !important;
             }
 
             .section {
                 page-break-inside: avoid;
                 background: white !important;
                 border: 1px solid #ccc !important;
+                box-shadow: none !important;
             }
 
             .image-container {
@@ -494,7 +546,7 @@
             
             <ul class="nav-menu">
                 <li><a href="#" class="active">Event Guide</a></li>
-                <li><a href="#">Stall Holders Guide</a></li>
+                <li><a href="https://shinesoccer.com/stall-holder-guide.html">Stall Holders Guide</a></li>
             </ul>
 
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
@@ -502,7 +554,7 @@
         
         <div class="mobile-nav" id="mobileNav">
             <a href="#" class="active">Event Guide</a>
-            <a href="#">Stall Holders Guide</a>
+            <a href="https://shinesoccer.com/stall-holder-guide.html">Stall Holders Guide</a>
         </div>
     </nav>
 
@@ -525,7 +577,7 @@
 
             <div class="event-details">
                 <h2>📅 Sunday, 10 August, 1:30-4:30pm</h2>
-                <p>📍 Eastwood Heights Public School, 9A Lincoln St, Eastwood NSW 2122</p>
+                <p>📍 Eastwood Heights Public School, 9A Lincoln St, Eastwood NSW 2122</p>
             </div>
 
             <div class="image-container">
@@ -565,12 +617,41 @@
                 
                 <p>And if you want to give more, why not consider gifting a coupon or two for other people to enjoy the day?</p>
                 
-                <p><strong>Coupons can be bought from your SHINE representative before the event, or at the coupon stall on the day, via cash or bank transfer.</strong></p>
+                <div class="coupon-info" style="background: rgba(240, 249, 255, 0.8); border-left-color: #0ea5e9;">
+                    <h3 style="color: #0ea5e9;">💳 Pre-Purchase Coupons This Week</h3>
+                    <p>Avoid queuing on the day! Purchase coupons via bank transfer this week:</p>
+                    <p><strong>Account Name:</strong> Cornerstone Community Church Shine<br>
+                    <strong>BSB:</strong> 012287<br>
+                    <strong>Account:</strong> 380261578<br>
+                    <strong>Description:</strong> [Congregation]Coupons-[YourName]<br>
+                    <em>Example: EASCoupons-JohnDoe</em></p>
+                    <p>Show your receipt to your SHINE rep on Sunday morning to collect your coupons.</p>
+                </div>
+                
+                <p><strong>On-day purchases:</strong> Queue at the coupon sales stall (#B2) - we accept cash, bank transfer, or credit card.</p>
             </section>
 
             <section id="where-funds-go" class="section">
                 <h2>Where do the funds go?</h2>
                 <p>The funds raised on the day will go towards supporting Cornerstone's mission partners and projects.</p>
+                
+                <h3>This Year's SHINE Projects</h3>
+                
+                <p><strong>🇯🇵 China Partnership - Church Planting in Japan</strong><br>
+                For many years we have been supporters of the work of China Partnership in training and working in church planting in China. The Chinese are now seeing opportunities to plant churches in Japan which are being effective in reaching the Japanese in ways that different from churches being planted by the west in Japan. This year we will provide funds to the China Partnership to assist in these church planting opportunities.</p>
+                
+                <p><strong>🎓 James O Fraser Centre</strong><br>
+                We currently support the James O Fraser Centre through our general missions program. As the number of local staff have increased the cost of supporting them has also increased and it has been brought to our attention that there is a need for additional funds. By supporting Shine we will be able to make an additional payment to assist the JOFC to support their staff.</p>
+                
+                <p><strong>📖 Open Doors - Middle East Ministry</strong><br>
+                Open Doors works with partners in the Middle East to bring the bible to those who have difficulty accessing it through normal means as well as other resources to assist in training and discipleship. Our Shine funds this year will again assist in this ministry.</p>
+                
+                <p><strong>🎒 University Ministry in Sydney</strong><br>
+                Each year we provide support for those serving in University ministry here in Sydney, currently this includes Sophia Tam, Ethan Lum Mow & Candace Lum Mow at UTS and Alice Dang at Macquarie Uni.</p>
+                
+                <p><strong>🇮🇳 Indian Reformed Fellowship Australia</strong><br>
+                Indian Reformed Fellowship Australia are a ministry involved in church planting and training of pastors in India and we are currently discussing with them a couple of projects which we will be able to support. One of these will be confirmed in the next week or so.</p>
+                
                 <p>If you would like to learn more, check out our missions website: <a href="https://www.cornerstonechurch.com.au/mission-initiatives" target="_blank" style="color: #DB3328;">cornerstonechurch.com.au/mission-initiatives</a></p>
             </section>
 
@@ -590,7 +671,7 @@
                     <div class="stall-item">🇲🇾 <strong>Kogarah:</strong> Char Kway Teow, Curry puffs, curry paste kits</div>
                     <div class="stall-item">🍲 <strong>Concord:</strong> Soups, Carbs, and Pho cooking class</div>
                     <div class="stall-item">🇹🇭 <strong>Willoughby:</strong> Thai Street Food, Satay Sticks and Pad Thai</div>
-                    <div class="stall-item">🎳 <strong>Eastwood:</strong> Carnival Games</div>
+                    <div class="stall-item">🎳 <strong>Eastwood:</strong> Carnival Games & Drinks</div>
                 </div>
                 <p style="font-style: italic; text-align: center; color: #DB3328; font-weight: 600; margin-top: 20px;">We have some seriously talented chefs at Cornerstone, so come hungry 😋!</p>
 
@@ -608,7 +689,11 @@
                 
                 <div class="highlight-box">
                     <h3>📍 Address</h3>
-                    <p><strong>Eastwood Heights Public School</strong><br>9A Lincoln St, Eastwood NSW 2122</p>
+                    <p style="color: white;"><strong>Eastwood Heights Public School</strong><br>9A Lincoln St, Eastwood NSW 2122</p>
+                </div>
+                
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dr6ncein2/image/upload/v1754617194/SHINE_2019_-_Parking_Guide_eayws2.jpg" alt="Parking Guide" class="map-image">
                 </div>
             </section>
 
@@ -641,7 +726,7 @@
                     </div>
                     <div class="contact-item">
                         <strong>Eastwood</strong>
-                        Diana Rianto
+                        Calvin Lau (or Diana Rianto)
                     </div>
                     <div class="contact-item">
                         <strong>Homebush Bay</strong>
@@ -671,7 +756,7 @@
 
                 <div class="highlight-box">
                     <h3>🎉 See you there!</h3>
-                    <p>We can't wait to celebrate God's faithfulness together and support His mission around the world - now in the comfort of indoor spaces!</p>
+                    <p style="color: white;">We can't wait to celebrate God's faithfulness together and support His mission around the world - now under cover!</p>
                 </div>
             </section>
         </div>
